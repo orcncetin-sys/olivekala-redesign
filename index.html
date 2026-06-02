@@ -297,32 +297,7 @@ nav {
   margin-top: 6px;
 }
 
-/* Hero scroll bar */
-.hero-bar {
-  border-top: 1px solid var(--rule);
-  padding: 20px var(--gap);
-  max-width: var(--max);
-  margin-inline: auto;
-  width: 100%;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.hero-bar-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.hero-bar-item .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
+/* Hero scroll bar — replaced by .marquee-* (see animation block) */
 
 /* ---- Section shared ---- */
 section {
@@ -1102,19 +1077,126 @@ footer {
 
 .modal a { color: var(--accent); }
 
-/* ---- Animations ---- */
+/* ============================================================
+   ANIMATIONS — adapted from 21st.dev community components
+   ============================================================ */
+
+/* ---- 1. Hero fade-up (existing) ---- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.fade-up { animation: fadeUp 600ms cubic-bezier(0.16,1,0.3,1) both; }
 
-.fade-up {
-  animation: fadeUp 500ms ease-out both;
+/* ---- 2. Infinite Text Marquee (hextaui/preetsuthar17) ----
+   Hero bar becomes a continuous scrolling ticker.
+   Duplicate items fill the track; CSS animates translateX(-50%).
+   --------------------------------------------------------- */
+.marquee-outer {
+  overflow: hidden;
+  width: 100%;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 32px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.marquee-item .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
+/* ---- 3. Vertical Cut Reveal (danielpetho) ----
+   Each word is clipped by overflow:hidden; inner span slides up
+   from translateY(105%) → translateY(0) with stagger.
+   ------------------------------------------------ */
+.vcr-word-outer {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 0.28em;
+  /* last word of a heading should not add extra space */
+}
+.vcr-word-inner {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity   300ms ease;
+}
+.vcr-revealed .vcr-word-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* Stagger delays applied by JS (--stagger-i CSS var) */
+.vcr-word-inner { transition-delay: calc(var(--stagger-i, 0) * 60ms); }
+
+/* ---- 4. Blur-Fade Stagger (hextaui/blurred-stagger-text) ----
+   Elements enter with opacity 0 + blur(10px), staggered.
+   ----------------------------------------------------------- */
+.blur-fade-item {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  transition:
+    opacity  500ms ease,
+    filter   500ms ease,
+    transform 500ms cubic-bezier(0.16,1,0.3,1);
+  transition-delay: var(--blur-delay, 0ms);
+}
+.blur-fade-item.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ---- 5. Animated Counter (hextaui) ----
+   Stat values count up from 0 (or start) when they scroll into view.
+   The JS handles the number logic; we just need the container.
+   ---------------------------------------------------------------- */
+.stat-value, .origin-stat-val, .catering-spec-val {
+  transition: color 300ms ease;
+}
+
+/* ---- 6. Animated underline for nav links (hextaui/animated-underline) ---- */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--fg);
+  transition: width 250ms cubic-bezier(0.16,1,0.3,1);
+}
+.nav-links a:hover::after { width: 100%; }
+
 @media (prefers-reduced-motion: reduce) {
-  .fade-up { animation: none; }
-  * { transition: none !important; }
+  .fade-up,
+  .marquee-track,
+  .vcr-word-inner,
+  .blur-fade-item { animation: none !important; transition: none !important; }
+  .vcr-word-inner { transform: none; opacity: 1; }
+  .blur-fade-item { opacity: 1; filter: none; transform: none; }
 }
 
 /* ---- Responsive ---- */
@@ -1288,30 +1370,31 @@ footer {
     </div>
   </div>
 
-  <div class="hero-bar container" style="border-top:1px solid var(--rule);">
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">IOC Certified</span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">ISO Food Safety</span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">Batch Traceable</span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">October Harvest Only</span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">Ayvalık Cultivar · Edremit</span>
-    </div>
-    <div class="hero-bar-item">
-      <span class="dot"></span>
-      <span class="label">Polyphenols &gt;300 mg/kg</span>
+  <!-- Infinite Text Marquee — adapted from hextaui/preetsuthar17 on 21st.dev -->
+  <div style="border-top:1px solid var(--rule); overflow:hidden;">
+    <div class="marquee-outer">
+      <div class="marquee-track" id="marquee-track">
+        <!-- Set 1 -->
+        <div class="marquee-item"><span class="dot"></span><span class="label">IOC Certified</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">ISO Food Safety</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Batch Traceable</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">October Harvest Only</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Ayvalık Cultivar · Edremit</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Polyphenols &gt;300 mg/kg</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Free Acidity 0.3%</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Cold Extraction 24°C</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Since 1961 · Ayvalık</span></div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="marquee-item"><span class="dot"></span><span class="label">IOC Certified</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">ISO Food Safety</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Batch Traceable</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">October Harvest Only</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Ayvalık Cultivar · Edremit</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Polyphenols &gt;300 mg/kg</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Free Acidity 0.3%</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Cold Extraction 24°C</span></div>
+        <div class="marquee-item"><span class="dot"></span><span class="label">Since 1961 · Ayvalık</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -2298,25 +2381,160 @@ function switchLang(lang) {
   }
 }
 
-/* Scroll fade-in for cards */
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(function(entries) {
+/* =============================================================
+   ANIMATION ENGINE — 21st.dev patterns adapted to vanilla JS
+   ============================================================= */
+
+/* ---- 1. Vertical Cut Reveal (danielpetho/vertical-cut-reveal) ----
+   Splits each .section-title into word spans with overflow:hidden
+   clips, then reveals them staggered on IntersectionObserver.
+   ---------------------------------------------------------------- */
+function initVerticalCutReveal() {
+  document.querySelectorAll('.section-title, .hero-headline').forEach(function(el) {
+    // Skip if already processed
+    if (el.dataset.vcrReady) return;
+    el.dataset.vcrReady = '1';
+
+    // Split HTML into word tokens, preserving <em> tags
+    const html = el.innerHTML;
+    // Replace each word (including inside tags) with wrapped version
+    let idx = 0;
+    el.innerHTML = el.innerHTML
+      .replace(/(<em>)(.*?)(<\/em>)/g, function(_, open, inner, close) {
+        // Handle <em> blocks as one unit per word
+        return inner.split(/(\s+)/).map(function(tok) {
+          if (/^\s+$/.test(tok)) return tok;
+          const i = idx++;
+          return open + '<span class="vcr-word-outer"><span class="vcr-word-inner" style="--stagger-i:' + i + '">' + tok + '</span></span>' + close;
+        }).join('');
+      })
+      .replace(/(?<=>|^)([^<\s][^<]*)(?=<|$)/g, function(word) {
+        // Plain text nodes — split by spaces
+        return word.split(/(\s+)/).map(function(tok) {
+          if (/^\s+$/.test(tok)) return tok;
+          const i = idx++;
+          return '<span class="vcr-word-outer"><span class="vcr-word-inner" style="--stagger-i:' + i + '">' + tok + '</span></span>';
+        }).join('');
+      });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.section-title, .hero-headline').forEach(function(el) {
+      el.classList.add('vcr-revealed');
+    });
+    return;
+  }
+
+  const obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
+        entry.target.classList.add('vcr-revealed');
+        obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.15 });
 
-  document.querySelectorAll('.product-card, .journal-card, .testimonial').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(12px)';
-    el.style.transition = 'opacity 400ms ease-out, transform 400ms ease-out';
-    observer.observe(el);
+  document.querySelectorAll('.section-title, .hero-headline').forEach(function(el) {
+    obs.observe(el);
   });
 }
+
+/* ---- 2. Animated Counter (hextaui/animated-counter) ----
+   Counts numeric values up from 0 with easeOutExpo.
+   Supports formats: "0.3%", "<4h", "3000yr", "38.7°N", "IOC", "Q4"
+   --------------------------------------------------------------- */
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function animateCounter(el) {
+  const raw = el.textContent.trim();
+  // Extract prefix (<), number, suffix (%, yr, h, °N, etc.)
+  const match = raw.match(/^([<>≥]?)(\d+\.?\d*)(.*)$/);
+  if (!match) return; // non-numeric (IOC, Q4 etc.) — skip
+
+  const prefix = match[1];
+  const target = parseFloat(match[2]);
+  const suffix = match[3];
+  const duration = 1800;
+  const start = performance.now();
+  const from = 0;
+
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutExpo(progress);
+    const current = from + (target - from) * eased;
+
+    // Format to same decimal places as original
+    const decimals = (match[2].indexOf('.') >= 0) ? match[2].split('.')[1].length : 0;
+    el.textContent = prefix + current.toFixed(decimals) + suffix;
+
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function initCounters() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-value, .origin-stat-val, .catering-spec-val').forEach(function(el) {
+    obs.observe(el);
+  });
+}
+
+/* ---- 3. Blur-Fade Stagger (hextaui/blurred-stagger-text) ----
+   Cards, section descriptions, process steps fade in
+   with blur+translateY staggered by position.
+   ------------------------------------------------------------ */
+function initBlurFade() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll(
+    '.product-card, .journal-card, .testimonial, .process-step, ' +
+    '.section-desc, .origin-para, .trade-features li, .supply-list li, ' +
+    '.step-desc, .stat-item, .origin-stat, .catering-spec, .journal-meta'
+  );
+
+  targets.forEach(function(el, i) {
+    el.classList.add('blur-fade-item');
+    // Stagger within same parent by sibling index
+    const siblings = el.parentElement ? el.parentElement.children : [];
+    let sibIdx = 0;
+    for (let s = 0; s < siblings.length; s++) {
+      if (siblings[s] === el) { sibIdx = s; break; }
+    }
+    el.style.setProperty('--blur-delay', (sibIdx * 80) + 'ms');
+  });
+
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  targets.forEach(function(el) { obs.observe(el); });
+}
+
+/* ---- Init all animations ---- */
+document.addEventListener('DOMContentLoaded', function() {
+  initBlurFade();
+  initCounters();
+  // Small delay so fonts are loaded before splitting text
+  setTimeout(initVerticalCutReveal, 120);
+});
 </script>
 
 </body>
