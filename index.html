@@ -19,14 +19,27 @@
    See: DESIGN.md
    ============================================================ */
 
+/* ============================================================
+   open-design: warm-editorial direction (Monocle / FT)
+   Palette: ink + cream + warm rust — adapted for KALA olive green
+   ============================================================ */
 :root {
-  --bg:      #F9F6F0;
-  --fg:      #1A1814;
-  --accent:  #2E5D3B;
-  --gold:    #7A5C1E;
-  --muted:   #8A817A;
-  --surface: #FFFFFF;
-  --rule:    #D4CFC8;
+  /* Paper palette — warm-editorial DESIGN.md */
+  --bg:        #FAF7F2;   /* warm off-white paper */
+  --fg:        #1C1A17;   /* near-black, warm */
+  --accent:    #2E5D3B;   /* Aegean olive green — primary CTA, 1 per screen */
+  --rust:      #B84A2A;   /* terracotta rust — editorial accent for rules/ornaments */
+  --gold:      #7A5C1E;   /* harvest gold — stat values, batch numbers */
+  --muted:     #8A817A;   /* warm grey — meta, captions */
+  --surface:   #FFFFFF;   /* elevated cards only */
+  --rule:      #D4CFC8;   /* dividers */
+  --paper-mid: #F2EDE4;   /* slightly darker paper — alternate section bg */
+
+  /* Dark olive section (origin) — open-design editorial dark band */
+  --dark-bg:   #1C2A1E;   /* deep forest/olive */
+  --dark-fg:   #F0EAE0;   /* warm cream on dark */
+  --dark-muted:#8FA893;   /* muted on dark */
+  --dark-rule: rgba(240,234,224,0.12);
 
   --serif:  'Cormorant Garamond', 'Times New Roman', Georgia, serif;
   --sans:   'DM Sans', -apple-system, system-ui, sans-serif;
@@ -1078,6 +1091,201 @@ footer {
 .modal a { color: var(--accent); }
 
 /* ============================================================
+   VISUAL AESTHETIC — open-design warm-editorial / Monocle / FT
+   ============================================================ */
+
+/* ---- Paper grain texture (SVG noise filter, no image needed) ----
+   open-design anti-slop rule: no flat pure-white backgrounds.
+   A subtle grain filter gives the "ink on paper" feel.
+   -------------------------------------------------------------- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ---- Decorative large section numerals ----
+   Monocle/FT aesthetic: oversized ghost numbers behind section headers.
+   One per section, positioned behind content.
+   ------------------------------------------------------------ */
+.section-deco-num {
+  position: absolute;
+  top: var(--section-pad);
+  right: var(--gap);
+  font-family: var(--serif);
+  font-size: clamp(120px, 14vw, 200px);
+  font-weight: 400;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rule);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+section { position: relative; }
+
+/* ---- Editorial ornament rule ----
+   Thin horizontal line with centred diamond — between major blocks.
+   -------------------------------------------------------------- */
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block: 64px;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gap);
+}
+.ornament-rule::before,
+.ornament-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.ornament-rule-diamond {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ---- Hero visual layer ----
+   Large italic KALA watermark + geometric olive branch accent.
+   -------------------------------------------------------------- */
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: var(--serif);
+  font-size: clamp(180px, 22vw, 340px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--fg) 6%, transparent);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+#hero .hero-inner,
+#hero > div:last-child { position: relative; z-index: 1; }
+
+/* Hero bottom gradient fade into marquee */
+#hero { background: linear-gradient(180deg, var(--bg) 0%, var(--paper-mid) 100%); }
+
+/* ---- Olive branch SVG accent (hero corner) ---- */
+.olive-branch-accent {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: clamp(200px, 28vw, 420px);
+  height: auto;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Dark origin section (open-design editorial dark band) ----
+   Deep olive green — like a Monocle spread with inverted paper.
+   -------------------------------------------------------------- */
+#origin {
+  background: var(--dark-bg);
+  color: var(--dark-fg);
+}
+#origin .section-no  { color: var(--dark-muted); }
+#origin .section-title { color: var(--dark-fg); }
+#origin .section-title em { color: #6BA882; }  /* lighter olive on dark */
+#origin .origin-para { color: var(--dark-muted); }
+#origin .origin-pull {
+  color: var(--dark-fg);
+  border-left-color: #6BA882;
+}
+#origin .origin-stat { border-bottom-color: var(--dark-rule); }
+#origin .origin-stat:first-child { border-top-color: var(--dark-rule); }
+#origin .origin-stat-val { color: #C8A24E; } /* warm gold on dark */
+#origin .origin-stat-label { color: var(--dark-muted); }
+#origin .btn-outline {
+  color: var(--dark-fg);
+  border-color: var(--dark-fg);
+}
+#origin .btn-outline:hover { background: var(--dark-fg); color: var(--dark-bg); }
+#origin .section-deco-num { -webkit-text-stroke-color: rgba(240,234,224,0.06); }
+/* Transition from dark origin back to paper */
+#origin + section { border-top: none; }
+#origin + section::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ---- Alternate paper-mid section backgrounds ---- */
+#process { background: var(--paper-mid); }
+
+/* ---- Rust accent for editorial details ----
+   Open-design warm-editorial: terracotta/rust for 1 accent element per screen.
+   We use --rust on section ornaments, not as CTA (that stays --accent).
+   -------------------------------------------------------------- */
+.section-no { color: var(--muted); }
+.ornament-rule-diamond { background: var(--rust); }
+
+/* ---- Product card visual enhancement ----
+   Cards get a subtle paper-mid tint and the SVG bottle illustration.
+   -------------------------------------------------------------- */
+.product-card { background: var(--bg); overflow: hidden; }
+.product-card-illustration {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  opacity: 0.55;
+}
+.product-card-illustration svg { height: 100px; width: auto; }
+
+/* ---- Pull quote refinement — Monocle style ---- */
+.origin-pull {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-style: italic;
+  line-height: 1.45;
+  padding-left: 28px;
+  border-left: 2px solid var(--accent);
+  max-width: 44ch;
+}
+
+/* ---- Section header rule line ---- */
+.section-header::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 32px;
+}
+
+/* ---- Journal section alternating bg ---- */
+#journal { background: var(--paper-mid); }
+
+/* ---- Testimonials inverted (already dark #fg bg) — refine ---- */
+#testimonials { background: var(--dark-bg); }
+#testimonials .section-title { color: var(--dark-fg); }
+#testimonials .section-no { color: var(--dark-muted); }
+#testimonials .testimonial { border-color: var(--dark-rule); }
+#testimonials .testimonial-body { color: var(--dark-fg); }
+
+/* ============================================================
    ANIMATIONS — adapted from 21st.dev community components
    ============================================================ */
 
@@ -1326,6 +1534,37 @@ footer {
      HERO
      ========================================================= -->
 <section id="hero">
+  <!-- open-design: large italic watermark behind content -->
+  <div class="hero-bg-text" aria-hidden="true">KALA</div>
+
+  <!-- open-design: olive branch editorial SVG accent -->
+  <svg class="olive-branch-accent" aria-hidden="true" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Main branch stem -->
+    <path d="M200 580 C190 480 170 380 185 280 C200 180 220 100 210 20" stroke="#2E5D3B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Olive leaves — left side -->
+    <ellipse cx="155" cy="260" rx="28" ry="12" transform="rotate(-35 155 260)" fill="#2E5D3B"/>
+    <ellipse cx="140" cy="320" rx="30" ry="11" transform="rotate(-40 140 320)" fill="#2E5D3B"/>
+    <ellipse cx="160" cy="380" rx="26" ry="11" transform="rotate(-30 160 380)" fill="#2E5D3B"/>
+    <ellipse cx="148" cy="440" rx="28" ry="12" transform="rotate(-45 148 440)" fill="#2E5D3B"/>
+    <ellipse cx="165" cy="500" rx="24" ry="10" transform="rotate(-25 165 500)" fill="#2E5D3B"/>
+    <!-- Olive leaves — right side -->
+    <ellipse cx="238" cy="240" rx="28" ry="12" transform="rotate(35 238 240)" fill="#2E5D3B"/>
+    <ellipse cx="252" cy="300" rx="30" ry="11" transform="rotate(42 252 300)" fill="#2E5D3B"/>
+    <ellipse cx="235" cy="360" rx="26" ry="11" transform="rotate(32 235 360)" fill="#2E5D3B"/>
+    <ellipse cx="245" cy="420" rx="28" ry="12" transform="rotate(38 245 420)" fill="#2E5D3B"/>
+    <ellipse cx="228" cy="480" rx="24" ry="10" transform="rotate(28 228 480)" fill="#2E5D3B"/>
+    <!-- Olive fruits -->
+    <circle cx="148" cy="290" r="7" fill="#4A7C5C"/>
+    <circle cx="252" cy="270" r="6" fill="#4A7C5C"/>
+    <circle cx="155" cy="410" r="6" fill="#4A7C5C"/>
+    <circle cx="245" cy="390" r="7" fill="#4A7C5C"/>
+    <!-- Smaller top leaves -->
+    <ellipse cx="195" cy="80" rx="22" ry="9" transform="rotate(-20 195 80)" fill="#2E5D3B"/>
+    <ellipse cx="222" cy="100" rx="22" ry="9" transform="rotate(25 222 100)" fill="#2E5D3B"/>
+    <ellipse cx="188" cy="140" rx="20" ry="8" transform="rotate(-30 188 140)" fill="#2E5D3B"/>
+    <ellipse cx="225" cy="160" rx="20" ry="8" transform="rotate(32 225 160)" fill="#2E5D3B"/>
+  </svg>
+
   <div class="hero-inner">
     <div class="hero-text fade-up">
       <div class="hero-eyebrow">
@@ -1404,6 +1643,7 @@ footer {
      PRODUCTS
      ========================================================= -->
 <section id="products">
+  <div class="section-deco-num" aria-hidden="true">01</div>
   <div class="section-header">
     <span class="section-no">01 / Range</span>
     <h2 class="section-title">Three tiers. <em>One standard.</em></h2>
@@ -1425,6 +1665,17 @@ footer {
 
       <div class="product-grid">
         <div class="product-card">
+          <!-- SVG bottle illustration — glass bottle silhouette -->
+          <div class="product-card-illustration" aria-hidden="true">
+            <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="2" width="12" height="10" rx="2" fill="#2E5D3B" opacity=".6"/>
+              <path d="M20 14 C16 22 14 30 14 40 L14 100 C14 108 18 112 30 112 C42 112 46 108 46 100 L46 40 C46 30 44 22 40 14 Z" fill="#2E5D3B" opacity=".15"/>
+              <path d="M20 14 C16 22 14 30 14 40 L14 100 C14 108 18 112 30 112 C42 112 46 108 46 100 L46 40 C46 30 44 22 40 14 Z" stroke="#2E5D3B" stroke-width="1.5"/>
+              <path d="M20 55 L40 55" stroke="#2E5D3B" stroke-width="0.8" opacity=".4"/>
+              <path d="M20 65 L40 65" stroke="#2E5D3B" stroke-width="0.8" opacity=".4"/>
+              <text x="30" y="88" text-anchor="middle" font-family="serif" font-size="7" fill="#2E5D3B" opacity=".7">KALA</text>
+            </svg>
+          </div>
           <div class="product-card-head">
             <h4 class="product-name">KALA Premium<br>Harvest Edition</h4>
             <span class="product-variant">500ml · 1L</span>
@@ -1445,6 +1696,21 @@ footer {
         </div>
 
         <div class="product-card">
+          <!-- SVG tasting set — three small bottles -->
+          <div class="product-card-illustration" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Bottle 1 -->
+              <rect x="14" y="8" width="10" height="8" rx="1.5" fill="#2E5D3B" opacity=".5"/>
+              <path d="M11 17 C9 22 8 28 8 35 L8 90 C8 96 11 98 19 98 C27 98 30 96 30 90 L30 35 C30 28 29 22 27 17 Z" fill="#2E5D3B" opacity=".12" stroke="#2E5D3B" stroke-width="1.2"/>
+              <!-- Bottle 2 (centre, taller) -->
+              <rect x="49" y="4" width="10" height="10" rx="1.5" fill="#2E5D3B" opacity=".6"/>
+              <path d="M46 15 C43 21 42 28 42 37 L42 96 C42 103 46 106 54 106 C62 106 66 103 66 96 L66 37 C66 28 65 21 62 15 Z" fill="#2E5D3B" opacity=".15" stroke="#2E5D3B" stroke-width="1.5"/>
+              <text x="54" y="76" text-anchor="middle" font-family="serif" font-size="6" fill="#2E5D3B" opacity=".6">KALA</text>
+              <!-- Bottle 3 -->
+              <rect x="84" y="8" width="10" height="8" rx="1.5" fill="#2E5D3B" opacity=".5"/>
+              <path d="M81 17 C79 22 78 28 78 35 L78 90 C78 96 81 98 89 98 C97 98 100 96 100 90 L100 35 C100 28 99 22 97 17 Z" fill="#2E5D3B" opacity=".12" stroke="#2E5D3B" stroke-width="1.2"/>
+            </svg>
+          </div>
           <div class="product-card-head">
             <h4 class="product-name">KALA 175ml<br>Tasting Set</h4>
             <span class="product-variant">3 × 175ml</span>
@@ -1494,6 +1760,19 @@ footer {
 
       <div class="product-grid">
         <div class="product-card">
+          <!-- SVG tin can silhouette -->
+          <div class="product-card-illustration" aria-hidden="true">
+            <svg viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="40" cy="18" rx="22" ry="7" fill="#2E5D3B" opacity=".4"/>
+              <rect x="18" y="18" width="44" height="72" fill="#2E5D3B" opacity=".12"/>
+              <rect x="18" y="18" width="44" height="72" stroke="#2E5D3B" stroke-width="1.5"/>
+              <ellipse cx="40" cy="90" rx="22" ry="7" stroke="#2E5D3B" stroke-width="1.5" fill="none"/>
+              <path d="M18 38 L62 38" stroke="#2E5D3B" stroke-width="0.8" opacity=".4"/>
+              <path d="M18 72 L62 72" stroke="#2E5D3B" stroke-width="0.8" opacity=".4"/>
+              <text x="40" y="59" text-anchor="middle" font-family="serif" font-size="8" fill="#2E5D3B" opacity=".7">KALA</text>
+              <text x="40" y="70" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#7A5C1E" opacity=".6">0.3% ACIDITY</text>
+            </svg>
+          </div>
           <div class="product-card-head">
             <h4 class="product-name">KALA Standard<br>Professional Tin</h4>
             <span class="product-variant">1L · 3L · 5L</span>
@@ -1544,6 +1823,23 @@ footer {
 
       <div class="product-grid">
         <div class="product-card">
+          <!-- SVG large drum silhouette -->
+          <div class="product-card-illustration" aria-hidden="true">
+            <svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="45" cy="20" rx="30" ry="10" fill="#2E5D3B" opacity=".3"/>
+              <ellipse cx="45" cy="20" rx="30" ry="10" stroke="#2E5D3B" stroke-width="1.5" fill="none"/>
+              <rect x="15" y="20" width="60" height="72" fill="#2E5D3B" opacity=".1"/>
+              <rect x="15" y="20" width="60" height="72" stroke="#2E5D3B" stroke-width="1.5"/>
+              <ellipse cx="45" cy="92" rx="30" ry="10" stroke="#2E5D3B" stroke-width="1.5" fill="none"/>
+              <path d="M15 40 L75 40" stroke="#2E5D3B" stroke-width="1" opacity=".3"/>
+              <path d="M15 75 L75 75" stroke="#2E5D3B" stroke-width="1" opacity=".3"/>
+              <!-- Tap -->
+              <rect x="60" y="58" width="12" height="6" rx="2" fill="#7A5C1E" opacity=".6"/>
+              <circle cx="73" cy="61" r="3" fill="#7A5C1E" opacity=".5"/>
+              <text x="45" y="55" text-anchor="middle" font-family="serif" font-size="9" fill="#2E5D3B" opacity=".7">KALA</text>
+              <text x="45" y="66" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#7A5C1E" opacity=".6">15L CATERING</text>
+            </svg>
+          </div>
           <div class="product-card-head">
             <h4 class="product-name">KALA Catering<br>5L Tin · 15L Drum</h4>
             <span class="product-variant">5L · 15L</span>
@@ -1589,10 +1885,14 @@ footer {
 </section>
 
 
+<!-- Ornament rule between Products and Origin -->
+<div class="ornament-rule" aria-hidden="true"><div class="ornament-rule-diamond"></div></div>
+
 <!-- =========================================================
      ORIGIN
      ========================================================= -->
 <section id="origin">
+  <div class="section-deco-num" aria-hidden="true">02</div>
   <div class="section-header">
     <span class="section-no">02 / Origin</span>
     <h2 class="section-title">Ayvalık. <em>38.7° north.</em></h2>
@@ -1655,6 +1955,7 @@ footer {
      PROCESS
      ========================================================= -->
 <section id="process">
+  <div class="section-deco-num" aria-hidden="true">03</div>
   <div class="section-header">
     <span class="section-no">03 / Process</span>
     <h2 class="section-title">Grove › Press › Tin. <em>Four hours.</em></h2>
@@ -1708,10 +2009,14 @@ footer {
 </section>
 
 
+<!-- Ornament rule -->
+<div class="ornament-rule" aria-hidden="true"><div class="ornament-rule-diamond"></div></div>
+
 <!-- =========================================================
      CATERING
      ========================================================= -->
 <section id="catering">
+  <div class="section-deco-num" aria-hidden="true">04</div>
   <div class="catering-inner">
     <div class="section-header" style="padding-inline:0; margin-bottom:0;">
       <span class="section-no">04 / Catering Supply</span>
