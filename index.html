@@ -2610,79 +2610,319 @@ function handleForm(e) {
 /* Language switch (i18n stubs — extend as needed) */
 const i18n = {
   en: {
-    navProducts: 'Products', navOrigin: 'Origin', navProcess: 'Process',
-    navCatering: 'Catering', navTrade: 'Trade', navJournal: 'Journal',
-    heroHeadline: "The<br><em>Professional's</em><br>Oil.",
-    heroSub: "Extra virgin olive oil from Ayvalık. Cold-extracted within four hours of harvest. Tested, batch-numbered, uncompromising.",
-    heroBtn1: 'Explore the Range', heroBtn2: 'Trade Enquiry',
+    navProducts:'Products', navOrigin:'Origin', navProcess:'Process', navCatering:'Catering', navTrade:'Trade', navJournal:'Journal',
+    heroHeadline:"The<br><em>Professional's</em><br>Oil.",
+    heroSub:"Extra virgin olive oil from Ayvalık. Cold-extracted within four hours of harvest. Tested, batch-numbered, uncompromising.",
+    heroBtn1:'Explore the Range', heroBtn2:'Trade Enquiry',
+    secNoProducts:'01 / Range', secTitleProducts:'Three tiers. <em>One standard.</em>',
+    secDescProducts:'Premium for the chef\'s table. Standard for the working kitchen. Catering for the operation that never stops.',
+    secNoOrigin:'02 / Origin', secTitleOrigin:'Ayvalık. <em>38.7° north.</em>',
+    secNoProcess:'03 / Process', secTitleProcess:'Grove › Press › Tin. <em>Four hours.</em>',
+    secDescProcess:'Every step is a constraint we impose on ourselves. Quality does not scale by cutting corners.',
+    secNoCatering:'04 / Catering Supply', secTitleCatering:'Built for <em>volume.</em> Certified for excellence.',
+    secNoTestimonials:'05 / Reviews', secTitleTestimonials:'What the kitchen <em>says.</em>',
+    secNoTrade:'06 / Trade', secTitleTrade:'For kitchens that never <em>stop.</em>',
+    secNoJournal:'07 / Journal', secTitleJournal:'The craft, <em>explained.</em>',
+    secDescJournal:'We write for professionals. The science, the geography, and the decisions that produce the oil in your kitchen.',
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'<em>Fine</em> Dining', tierPremiumDesc:'Single-grove. Numbered from bottle one. The detail on the plate the guest never sees but always tastes.',
+    tierStdLabel:'◈ Standard', tierStdName:'<em>Professional</em> Kitchen', tierStdDesc:'Cold-extracted, nitrogen-flushed, pressed within four hours. The oil a professional kitchen relies on from first prep to last service.',
+    tierCatLabel:'▣ Catering', tierCatName:'<em>High-Volume</em> Operations', tierCatDesc:'The same extraction standard, the same lab certification, at the volume a catering operation requires. 0.3% does not change.',
+    statAcidity:'Free Acidity — All Tiers', statPress:'Grove to Press Window', statHeritage:'Ayvalık Cultivation Heritage', statTemp:'Max Cold Extraction Temp',
+    originQuote:'"Three thousand years of cultivation. One harvest. No compromises."',
+    tradeTitle:'Request Sample or Pricing', tradeSubtitle:'We respond within 2 working days.',
+    formName:'Name', formEst:'Establishment', formEmail:'Email', formSector:'Sector', formTier:'Tier of Interest', formVol:'Monthly Volume', formMsg:'Message (optional)',
+    formSubmit:'Send Trade Enquiry', formSending:'Sending…',
+    footerTagline:'Extra virgin olive oil from Ayvalık, Aegean Turkey. Three tiers. One extraction standard. Zero compromise.',
+    shopBtn:'Shop',
   },
   tr: {
-    navProducts: 'Ürünler', navOrigin: 'Menşe', navProcess: 'Üretim',
-    navCatering: 'Toplu Tedarik', navTrade: 'Ticaret', navJournal: 'Dergi',
-    heroHeadline: "Profesyonellerin<br><em>Zeytinyağı.</em>",
-    heroSub: "Ayvalık'tan sızma zeytinyağı. Hasattan dört saat içinde soğuk sıkım. Test edilmiş, parti numaralı, taviz yok.",
-    heroBtn1: 'Ürünleri Keşfet', heroBtn2: 'Ticari Başvuru',
+    navProducts:'Ürünler', navOrigin:'Menşe', navProcess:'Üretim', navCatering:'Toplu Tedarik', navTrade:'Ticaret', navJournal:'Dergi',
+    heroHeadline:"Profesyonellerin<br><em>Zeytinyağı.</em>",
+    heroSub:"Ayvalık'tan sızma zeytinyağı. Hasattan dört saat içinde soğuk sıkım. Test edilmiş, parti numaralı, taviz yok.",
+    heroBtn1:'Ürünleri Keşfet', heroBtn2:'Ticari Başvuru',
+    secNoProducts:'01 / Ürün Serisi', secTitleProducts:'Üç seviye. <em>Tek standart.</em>',
+    secDescProducts:'Premium şef masası için. Standart çalışan mutfak için. Catering durmayan operasyon için.',
+    secNoOrigin:'02 / Menşe', secTitleOrigin:'Ayvalık. <em>38,7° kuzey.</em>',
+    secNoProcess:'03 / Üretim', secTitleProcess:'Bahçe › Pres › Teneke. <em>Dört saat.</em>',
+    secDescProcess:'Her adım kendimize koyduğumuz bir kısıttır. Kalite köşe kaçırarak ölçeklenemez.',
+    secNoCatering:'04 / Toplu Tedarik', secTitleCatering:'<em>Hacim</em> için üretildi. Mükemmellik için sertifikalı.',
+    secNoTestimonials:'05 / Yorumlar', secTitleTestimonials:'Mutfak <em>ne diyor.</em>',
+    secNoTrade:'06 / Ticaret', secTitleTrade:'<em>Durmayan</em> mutfaklar için.',
+    secNoJournal:'07 / Dergi', secTitleJournal:'Zanaat, <em>anlatıldı.</em>',
+    secDescJournal:'Profesyoneller için yazıyoruz. Bilim, coğrafya ve mutfağınızdaki yağı üreten kararlar.',
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'<em>Fine</em> Dining', tierPremiumDesc:'Tek bahçe. Şişe birden numaralı. Misafirin görmediği ama her zaman tattığı detay.',
+    tierStdLabel:'◈ Standart', tierStdName:'<em>Profesyonel</em> Mutfak', tierStdDesc:'Soğuk sıkım, azot basınçlı, dört saat içinde preslenmiş. İlk hazırlıktan son servise kadar profesyonel mutfağın güvendiği yağ.',
+    tierCatLabel:'▣ Toplu Tedarik', tierCatName:'<em>Yüksek Hacimli</em> Operasyonlar', tierCatDesc:'Aynı ekstraksiyon standardı, aynı laboratuvar sertifikası, toplu operasyonun gerektirdiği hacimde. %0,3 değişmez.',
+    statAcidity:'Serbest Asitlik — Tüm Seriler', statPress:'Bahçeden Prese', statHeritage:'Ayvalık Zeytinyağı Mirası', statTemp:'Maks. Soğuk Sıkım Sıcaklığı',
+    originQuote:'"Üç bin yıllık kültürasyon. Tek hasat. Taviz yok."',
+    tradeTitle:'Numune veya Fiyat Talebi', tradeSubtitle:'2 iş günü içinde yanıt veririz.',
+    formName:'Ad Soyad', formEst:'İşletme', formEmail:'E-posta', formSector:'Sektör', formTier:'İlgilenilen Ürün', formVol:'Aylık Hacim', formMsg:'Mesaj (isteğe bağlı)',
+    formSubmit:'Ticari Başvuru Gönder', formSending:'Gönderiliyor…',
+    footerTagline:'Ayvalık, Ege Türkiye\'sinden sızma zeytinyağı. Üç seviye. Tek ekstraksiyon standardı. Sıfır taviz.',
+    shopBtn:'Satın Al',
   },
   de: {
-    navProducts: 'Produkte', navOrigin: 'Herkunft', navProcess: 'Prozess',
-    navCatering: 'Catering', navTrade: 'Handel', navJournal: 'Journal',
-    heroHeadline: "Das Öl der<br><em>Profis.</em>",
-    heroSub: "Natives Olivenöl extra aus Ayvalık. Kaltextraktion innerhalb von vier Stunden nach der Ernte. Getestet, chargennummeriert, kompromisslos.",
-    heroBtn1: 'Sortiment entdecken', heroBtn2: 'Handelsanfrage',
+    navProducts:'Produkte', navOrigin:'Herkunft', navProcess:'Prozess', navCatering:'Catering', navTrade:'Handel', navJournal:'Journal',
+    heroHeadline:"Das Öl der<br><em>Profis.</em>",
+    heroSub:"Natives Olivenöl extra aus Ayvalık. Kaltextraktion innerhalb von vier Stunden nach der Ernte. Getestet, chargennummeriert, kompromisslos.",
+    heroBtn1:'Sortiment entdecken', heroBtn2:'Handelsanfrage',
+    secNoProducts:'01 / Sortiment', secTitleProducts:'Drei Linien. <em>Ein Standard.</em>',
+    secDescProducts:'Premium für den Cheftisch. Standard für die Arbeitsküche. Catering für den Betrieb, der nie stoppt.',
+    secNoOrigin:'02 / Herkunft', secTitleOrigin:'Ayvalık. <em>38,7° Nord.</em>',
+    secNoProcess:'03 / Prozess', secTitleProcess:'Hain › Presse › Dose. <em>Vier Stunden.</em>',
+    secDescProcess:'Jeder Schritt ist eine Einschränkung, die wir uns selbst auferlegen. Qualität lässt sich nicht durch Abkürzungen skalieren.',
+    secNoCatering:'04 / Catering-Lieferung', secTitleCatering:'Für <em>Volumen</em> gebaut. Für Exzellenz zertifiziert.',
+    secNoTestimonials:'05 / Bewertungen', secTitleTestimonials:'Was die Küche <em>sagt.</em>',
+    secNoTrade:'06 / Handel', secTitleTrade:'Für Küchen, die nie <em>aufhören.</em>',
+    secNoJournal:'07 / Journal', secTitleJournal:'Das Handwerk, <em>erklärt.</em>',
+    secDescJournal:'Wir schreiben für Profis. Die Wissenschaft, die Geographie und die Entscheidungen, die das Öl in Ihrer Küche ergeben.',
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'<em>Fine</em> Dining', tierPremiumDesc:'Einzelgut. Nummeriert ab Flasche eins. Das Detail auf dem Teller, das der Gast nie sieht, aber immer schmeckt.',
+    tierStdLabel:'◈ Standard', tierStdName:'<em>Profi-</em>Küche', tierStdDesc:'Kaltextraktion, stickstoffgespült, innerhalb von vier Stunden gepresst. Das Öl, auf das sich eine Profiküche verlässt.',
+    tierCatLabel:'▣ Catering', tierCatName:'<em>Großbetrieb</em>', tierCatDesc:'Derselbe Extraktionsstandard, dieselbe Laborzertifizierung, in dem Volumen, das ein Cateringbetrieb benötigt.',
+    statAcidity:'Freie Säure — alle Linien', statPress:'Hain bis Presse', statHeritage:'Ayvalık-Anbautradition', statTemp:'Max. Kaltextraktionstemperatur',
+    originQuote:'"Dreitausend Jahre Anbau. Eine Ernte. Keine Kompromisse."',
+    tradeTitle:'Muster oder Preisanfrage', tradeSubtitle:'Wir antworten innerhalb von 2 Werktagen.',
+    formName:'Name', formEst:'Betrieb', formEmail:'E-Mail', formSector:'Branche', formTier:'Produktlinie', formVol:'Monatliches Volumen', formMsg:'Nachricht (optional)',
+    formSubmit:'Handelsanfrage senden', formSending:'Wird gesendet…',
+    footerTagline:'Natives Olivenöl extra aus Ayvalık, Ägäistürkei. Drei Linien. Ein Extraktionsstandard. Null Kompromisse.',
+    shopBtn:'Shop',
   },
   ar: {
-    navProducts: 'المنتجات', navOrigin: 'المنشأ', navProcess: 'العملية',
-    navCatering: 'التموين', navTrade: 'التجارة', navJournal: 'المجلة',
-    heroHeadline: "زيت<br><em>المحترفين.</em>",
-    heroSub: "زيت زيتون بكر ممتاز من أيفاليك. استخلاص بارد خلال أربع ساعات من الحصاد. مُختبَر، مُرقَّم بالدفعات، بلا تنازلات.",
-    heroBtn1: 'استكشف المجموعة', heroBtn2: 'استفسار تجاري',
+    navProducts:'المنتجات', navOrigin:'المنشأ', navProcess:'العملية', navCatering:'التموين', navTrade:'التجارة', navJournal:'المجلة',
+    heroHeadline:"زيت<br><em>المحترفين.</em>",
+    heroSub:"زيت زيتون بكر ممتاز من أيفاليك. استخلاص بارد خلال أربع ساعات من الحصاد. مُختبَر، مُرقَّم بالدفعات، بلا تنازلات.",
+    heroBtn1:'استكشف المجموعة', heroBtn2:'استفسار تجاري',
+    secNoProducts:'01 / المجموعة', secTitleProducts:'ثلاثة مستويات. <em>معيار واحد.</em>',
+    secDescProducts:'بريميوم لطاولة الشيف. ستاندارد للمطبخ العامل. كيترينج للعمليات التي لا تتوقف.',
+    secNoOrigin:'02 / المنشأ', secTitleOrigin:'أيفاليك. <em>38.7° شمالاً.</em>',
+    secNoProcess:'03 / العملية', secTitleProcess:'البستان › العصر › العلبة. <em>أربع ساعات.</em>',
+    secDescProcess:'كل خطوة قيد نفرضه على أنفسنا. لا يمكن توسيع الجودة بتجاوز الخطوات.',
+    secNoCatering:'04 / تموين كبير', secTitleCatering:'مصمم <em>للحجم.</em> معتمد للتميز.',
+    secNoTestimonials:'05 / آراء', secTitleTestimonials:'ما تقوله <em>المطابخ.</em>',
+    secNoTrade:'06 / التجارة', secTitleTrade:'للمطابخ التي لا <em>تتوقف.</em>',
+    secNoJournal:'07 / المجلة', secTitleJournal:'الحرفة، <em>مشروحة.</em>',
+    secDescJournal:'نكتب للمحترفين. العلم والجغرافيا والقرارات التي تصنع الزيت في مطبخك.',
+    tierPremiumLabel:'⬡ بريميوم', tierPremiumName:'<em>مطعم</em> فاخر', tierPremiumDesc:'بستان واحد. مُرقَّم من الزجاجة الأولى. التفصيل في الطبق الذي لا يراه الضيف لكنه يتذوقه دائماً.',
+    tierStdLabel:'◈ ستاندارد', tierStdName:'المطبخ <em>الاحترافي</em>', tierStdDesc:'استخلاص بارد، محكوم بالنيتروجين، مضغوط خلال أربع ساعات. الزيت الذي يعتمد عليه المطبخ الاحترافي.',
+    tierCatLabel:'▣ تموين', tierCatName:'عمليات <em>الحجم الكبير</em>', tierCatDesc:'نفس معيار الاستخلاص، نفس الاعتماد المخبري، بالحجم الذي تتطلبه عمليات التموين.',
+    statAcidity:'الحموضة الحرة — جميع المستويات', statPress:'من البستان إلى العصارة', statHeritage:'تراث زراعة أيفاليك', statTemp:'أقصى درجة حرارة للاستخلاص البارد',
+    originQuote:'"ثلاثة آلاف عام من الزراعة. حصاد واحد. بلا تنازلات."',
+    tradeTitle:'طلب عينة أو تسعير', tradeSubtitle:'نرد خلال يومي عمل.',
+    formName:'الاسم', formEst:'المنشأة', formEmail:'البريد الإلكتروني', formSector:'القطاع', formTier:'المنتج المطلوب', formVol:'الحجم الشهري', formMsg:'الرسالة (اختياري)',
+    formSubmit:'إرسال الاستفسار التجاري', formSending:'جارٍ الإرسال…',
+    footerTagline:'زيت زيتون بكر ممتاز من أيفاليك، تركيا الإيجية. ثلاثة مستويات. معيار استخلاص واحد. صفر تنازلات.',
+    shopBtn:'تسوق',
   },
   ru: {
-    navProducts: 'Продукты', navOrigin: 'Происхождение', navProcess: 'Процесс',
-    navCatering: 'Кейтеринг', navTrade: 'Торговля', navJournal: 'Журнал',
-    heroHeadline: "Масло для<br><em>профессионалов.</em>",
-    heroSub: "Оливковое масло extra virgin из Айвалыка. Холодный отжим в течение четырёх часов после сбора. Протестировано, пронумеровано, без компромиссов.",
-    heroBtn1: 'Смотреть ассортимент', heroBtn2: 'Торговый запрос',
+    navProducts:'Продукты', navOrigin:'Происхождение', navProcess:'Процесс', navCatering:'Кейтеринг', navTrade:'Торговля', navJournal:'Журнал',
+    heroHeadline:"Масло для<br><em>профессионалов.</em>",
+    heroSub:"Оливковое масло extra virgin из Айвалыка. Холодный отжим в течение четырёх часов после сбора. Протестировано, пронумеровано, без компромиссов.",
+    heroBtn1:'Смотреть ассортимент', heroBtn2:'Торговый запрос',
+    secNoProducts:'01 / Ассортимент', secTitleProducts:'Три категории. <em>Один стандарт.</em>',
+    secDescProducts:'Премиум — для стола шефа. Стандарт — для рабочей кухни. Кейтеринг — для операций, которые не останавливаются.',
+    secNoOrigin:'02 / Происхождение', secTitleOrigin:'Айвалык. <em>38,7° северной широты.</em>',
+    secNoProcess:'03 / Процесс', secTitleProcess:'Роща › Пресс › Банка. <em>Четыре часа.</em>',
+    secDescProcess:'Каждый шаг — это ограничение, которое мы сами на себя накладываем. Качество не масштабируется за счёт срезания углов.',
+    secNoCatering:'04 / Кейтеринг-поставки', secTitleCatering:'Создано для <em>объёма.</em> Сертифицировано для совершенства.',
+    secNoTestimonials:'05 / Отзывы', secTitleTestimonials:'Что говорит <em>кухня.</em>',
+    secNoTrade:'06 / Торговля', secTitleTrade:'Для кухонь, которые никогда <em>не останавливаются.</em>',
+    secNoJournal:'07 / Журнал', secTitleJournal:'Ремесло, <em>объяснённое.</em>',
+    secDescJournal:'Мы пишем для профессионалов. Наука, география и решения, которые производят масло на вашей кухне.',
+    tierPremiumLabel:'⬡ Премиум', tierPremiumName:'<em>Высокая</em> кухня', tierPremiumDesc:'Единственная роща. Пронумеровано с первой бутылки. Деталь на тарелке, которую гость не видит, но всегда чувствует.',
+    tierStdLabel:'◈ Стандарт', tierStdName:'<em>Профессиональная</em> кухня', tierStdDesc:'Холодный отжим, заполнение азотом, прессование в течение четырёх часов. Масло, на которое полагается профессиональная кухня.',
+    tierCatLabel:'▣ Кейтеринг', tierCatName:'<em>Крупные</em> операции', tierCatDesc:'Тот же стандарт экстракции, та же лабораторная сертификация, в объёме, необходимом для кейтеринга.',
+    statAcidity:'Свободная кислотность — все категории', statPress:'От рощи до пресса', statHeritage:'Традиции выращивания в Айвалыке', statTemp:'Макс. температура холодного отжима',
+    originQuote:'"Три тысячи лет выращивания. Один урожай. Без компромиссов."',
+    tradeTitle:'Запрос образца или цен', tradeSubtitle:'Мы отвечаем в течение 2 рабочих дней.',
+    formName:'Имя', formEst:'Заведение', formEmail:'Электронная почта', formSector:'Сектор', formTier:'Интересующая линейка', formVol:'Ежемесячный объём', formMsg:'Сообщение (необязательно)',
+    formSubmit:'Отправить торговый запрос', formSending:'Отправляется…',
+    footerTagline:'Оливковое масло extra virgin из Айвалыка, Эгейская Турция. Три категории. Один стандарт экстракции. Ноль компромиссов.',
+    shopBtn:'Магазин',
   },
   fr: {
-    navProducts: 'Produits', navOrigin: 'Origine', navProcess: 'Processus',
-    navCatering: 'Restauration', navTrade: 'Commerce', navJournal: 'Journal',
-    heroHeadline: "L'huile des<br><em>professionnels.</em>",
-    heroSub: "Huile d'olive vierge extra d'Ayvalık. Extraction à froid dans les quatre heures suivant la récolte. Testée, numérotée par lot, sans compromis.",
-    heroBtn1: "Découvrir la gamme", heroBtn2: 'Demande commerciale',
+    navProducts:'Produits', navOrigin:'Origine', navProcess:'Processus', navCatering:'Restauration', navTrade:'Commerce', navJournal:'Journal',
+    heroHeadline:"L'huile des<br><em>professionnels.</em>",
+    heroSub:"Huile d'olive vierge extra d'Ayvalık. Extraction à froid dans les quatre heures suivant la récolte. Testée, numérotée par lot, sans compromis.",
+    heroBtn1:"Découvrir la gamme", heroBtn2:'Demande commerciale',
+    secNoProducts:'01 / Gamme', secTitleProducts:'Trois niveaux. <em>Un seul standard.</em>',
+    secDescProducts:"Premium pour la table du chef. Standard pour la cuisine de travail. Restauration pour les opérations qui ne s'arrêtent jamais.",
+    secNoOrigin:'02 / Origine', secTitleOrigin:'Ayvalık. <em>38,7° nord.</em>',
+    secNoProcess:'03 / Processus', secTitleProcess:'Oliveraie › Presse › Boîte. <em>Quatre heures.</em>',
+    secDescProcess:"Chaque étape est une contrainte que nous nous imposons. La qualité ne s'adapte pas en prenant des raccourcis.",
+    secNoCatering:'04 / Livraison restauration', secTitleCatering:'Conçu pour le <em>volume.</em> Certifié pour l\'excellence.',
+    secNoTestimonials:'05 / Avis', secTitleTestimonials:'Ce que dit la <em>cuisine.</em>',
+    secNoTrade:'06 / Commerce', secTitleTrade:'Pour les cuisines qui ne <em>s\'arrêtent pas.</em>',
+    secNoJournal:'07 / Journal', secTitleJournal:'Le savoir-faire, <em>expliqué.</em>',
+    secDescJournal:"Nous écrivons pour les professionnels. La science, la géographie et les décisions qui produisent l'huile dans votre cuisine.",
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'<em>Haute</em> gastronomie', tierPremiumDesc:"Monodomaine. Numéroté dès la première bouteille. Le détail dans l'assiette que l'invité ne voit pas mais goûte toujours.",
+    tierStdLabel:'◈ Standard', tierStdName:'Cuisine <em>professionnelle</em>', tierStdDesc:"Extraction à froid, rinçage à l'azote, pressé en quatre heures. L'huile sur laquelle s'appuie une cuisine professionnelle.",
+    tierCatLabel:'▣ Restauration', tierCatName:'Opérations à <em>grand volume</em>', tierCatDesc:"Le même standard d'extraction, la même certification laboratoire, dans le volume qu'une opération de restauration exige.",
+    statAcidity:"Acidité libre — tous niveaux", statPress:"Oliveraie à la presse", statHeritage:"Patrimoine cultural d'Ayvalık", statTemp:"Temp. max. d'extraction à froid",
+    originQuote:'"Trois mille ans de culture. Une seule récolte. Sans compromis."',
+    tradeTitle:'Demander un échantillon ou un tarif', tradeSubtitle:'Nous répondons sous 2 jours ouvrés.',
+    formName:'Nom', formEst:'Établissement', formEmail:'E-mail', formSector:'Secteur', formTier:'Gamme souhaitée', formVol:'Volume mensuel', formMsg:'Message (facultatif)',
+    formSubmit:'Envoyer la demande commerciale', formSending:'Envoi…',
+    footerTagline:"Huile d'olive vierge extra d'Ayvalık, Turquie égéenne. Trois niveaux. Un standard d'extraction. Zéro compromis.",
+    shopBtn:'Boutique',
   },
   es: {
-    navProducts: 'Productos', navOrigin: 'Origen', navProcess: 'Proceso',
-    navCatering: 'Catering', navTrade: 'Comercio', navJournal: 'Revista',
-    heroHeadline: "El aceite de los<br><em>profesionales.</em>",
-    heroSub: "Aceite de oliva virgen extra de Ayvalık. Extracción en frío en menos de cuatro horas tras la cosecha. Analizado, numerado por lote, sin compromisos.",
-    heroBtn1: 'Explorar la gama', heroBtn2: 'Consulta comercial',
+    navProducts:'Productos', navOrigin:'Origen', navProcess:'Proceso', navCatering:'Catering', navTrade:'Comercio', navJournal:'Artículos',
+    heroHeadline:"El aceite de los<br><em>profesionales.</em>",
+    heroSub:"Aceite de oliva virgen extra de Ayvalık. Extracción en frío en menos de cuatro horas tras la cosecha. Analizado, numerado por lote, sin compromisos.",
+    heroBtn1:'Explorar la gama', heroBtn2:'Consulta comercial',
+    secNoProducts:'01 / Gama', secTitleProducts:'Tres niveles. <em>Un estándar.</em>',
+    secDescProducts:'Premium para la mesa del chef. Estándar para la cocina profesional. Catering para la operación que nunca se detiene.',
+    secNoOrigin:'02 / Origen', secTitleOrigin:'Ayvalık. <em>38,7° norte.</em>',
+    secNoProcess:'03 / Proceso', secTitleProcess:'Olivar › Prensa › Lata. <em>Cuatro horas.</em>',
+    secDescProcess:'Cada paso es una restricción que nos imponemos. La calidad no escala tomando atajos.',
+    secNoCatering:'04 / Suministro catering', secTitleCatering:'Diseñado para el <em>volumen.</em> Certificado para la excelencia.',
+    secNoTestimonials:'05 / Opiniones', secTitleTestimonials:'Lo que dice la <em>cocina.</em>',
+    secNoTrade:'06 / Comercio', secTitleTrade:'Para cocinas que nunca <em>paran.</em>',
+    secNoJournal:'07 / Artículos', secTitleJournal:'El oficio, <em>explicado.</em>',
+    secDescJournal:'Escribimos para profesionales. La ciencia, la geografía y las decisiones que producen el aceite en su cocina.',
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'Alta <em>gastronomía</em>', tierPremiumDesc:'Finca única. Numerado desde la primera botella. El detalle en el plato que el comensal nunca ve pero siempre saborea.',
+    tierStdLabel:'◈ Estándar', tierStdName:'Cocina <em>profesional</em>', tierStdDesc:'Extracción en frío, envasado en nitrógeno, prensado en cuatro horas. El aceite en que confía una cocina profesional.',
+    tierCatLabel:'▣ Catering', tierCatName:'Operaciones de <em>gran volumen</em>', tierCatDesc:'El mismo estándar de extracción, la misma certificación de laboratorio, en el volumen que requiere una operación de catering.',
+    statAcidity:'Acidez libre — todos los niveles', statPress:'Del olivar a la prensa', statHeritage:'Patrimonio de cultivo en Ayvalık', statTemp:'Temp. máx. extracción en frío',
+    originQuote:'"Tres mil años de cultivo. Una sola cosecha. Sin compromisos."',
+    tradeTitle:'Solicitar muestra o precio', tradeSubtitle:'Respondemos en 2 días hábiles.',
+    formName:'Nombre', formEst:'Establecimiento', formEmail:'Correo electrónico', formSector:'Sector', formTier:'Producto de interés', formVol:'Volumen mensual', formMsg:'Mensaje (opcional)',
+    formSubmit:'Enviar consulta comercial', formSending:'Enviando…',
+    footerTagline:'Aceite de oliva virgen extra de Ayvalık, Turquía egea. Tres niveles. Un estándar de extracción. Cero compromisos.',
+    shopBtn:'Tienda',
   },
   it: {
-    navProducts: 'Prodotti', navOrigin: 'Origine', navProcess: 'Processo',
-    navCatering: 'Catering', navTrade: 'Commercio', navJournal: 'Rivista',
-    heroHeadline: "L'olio dei<br><em>professionisti.</em>",
-    heroSub: "Olio extravergine di oliva da Ayvalık. Estrazione a freddo entro quattro ore dalla raccolta. Analizzato, numerato per lotto, senza compromessi.",
-    heroBtn1: 'Esplora la gamma', heroBtn2: 'Richiesta commerciale',
+    navProducts:'Prodotti', navOrigin:'Origine', navProcess:'Processo', navCatering:'Catering', navTrade:'Commercio', navJournal:'Articoli',
+    heroHeadline:"L'olio dei<br><em>professionisti.</em>",
+    heroSub:"Olio extravergine di oliva da Ayvalık. Estrazione a freddo entro quattro ore dalla raccolta. Analizzato, numerato per lotto, senza compromessi.",
+    heroBtn1:'Esplora la gamma', heroBtn2:'Richiesta commerciale',
+    secNoProducts:'01 / Gamma', secTitleProducts:'Tre livelli. <em>Un solo standard.</em>',
+    secDescProducts:'Premium per la tavola dello chef. Standard per la cucina professionale. Catering per le operazioni che non si fermano mai.',
+    secNoOrigin:'02 / Origine', secTitleOrigin:'Ayvalık. <em>38,7° nord.</em>',
+    secNoProcess:'03 / Processo', secTitleProcess:'Uliveto › Frantoio › Latta. <em>Quattro ore.</em>',
+    secDescProcess:'Ogni passaggio è un vincolo che ci imponiamo. La qualità non si scala prendendo scorciatoie.',
+    secNoCatering:'04 / Fornitura catering', secTitleCatering:'Progettato per il <em>volume.</em> Certificato per l\'eccellenza.',
+    secNoTestimonials:'05 / Recensioni', secTitleTestimonials:'Cosa dice la <em>cucina.</em>',
+    secNoTrade:'06 / Commercio', secTitleTrade:'Per le cucine che non <em>si fermano.</em>',
+    secNoJournal:'07 / Articoli', secTitleJournal:'Il mestiere, <em>spiegato.</em>',
+    secDescJournal:'Scriviamo per i professionisti. La scienza, la geografia e le decisioni che producono l\'olio nella sua cucina.',
+    tierPremiumLabel:'⬡ Premium', tierPremiumName:'Alta <em>cucina</em>', tierPremiumDesc:'Singola tenuta. Numerato dalla prima bottiglia. Il dettaglio nel piatto che l\'ospite non vede ma assapora sempre.',
+    tierStdLabel:'◈ Standard', tierStdName:'Cucina <em>professionale</em>', tierStdDesc:'Estrazione a freddo, lavaggio con azoto, pressato entro quattro ore. L\'olio su cui fa affidamento una cucina professionale.',
+    tierCatLabel:'▣ Catering', tierCatName:'Operazioni ad <em>alto volume</em>', tierCatDesc:'Lo stesso standard di estrazione, la stessa certificazione di laboratorio, nel volume richiesto da un\'operazione di catering.',
+    statAcidity:'Acidità libera — tutti i livelli', statPress:"Dal uliveto al frantoio", statHeritage:'Patrimonio coltivazione Ayvalık', statTemp:'Temp. max. estrazione a freddo',
+    originQuote:'"Tremila anni di coltivazione. Un solo raccolto. Senza compromessi."',
+    tradeTitle:'Richiedi campione o prezzo', tradeSubtitle:'Rispondiamo entro 2 giorni lavorativi.',
+    formName:'Nome', formEst:'Attività', formEmail:'E-mail', formSector:'Settore', formTier:'Linea di interesse', formVol:'Volume mensile', formMsg:'Messaggio (facoltativo)',
+    formSubmit:'Invia richiesta commerciale', formSending:'Invio…',
+    footerTagline:"Olio extravergine di oliva da Ayvalık, Turchia egea. Tre livelli. Uno standard di estrazione. Zero compromessi.",
+    shopBtn:'Negozio',
   },
 };
 
 function switchLang(lang) {
-  const t = i18n[lang] || i18n['en'];
-  const links = document.querySelectorAll('.nav-links a');
-  const keys = ['navProducts', 'navOrigin', 'navProcess', 'navCatering', 'navTrade', 'navJournal'];
-  links.forEach(function(a, i) { if (keys[i]) a.textContent = t[keys[i]]; });
-  document.querySelector('.hero-headline').innerHTML = t.heroHeadline;
-  document.querySelector('.hero-sub').textContent = t.heroSub;
-  const btns = document.querySelectorAll('.hero-actions .btn');
-  if (btns[0]) btns[0].textContent = t.heroBtn1;
-  if (btns[1]) btns[1].textContent = t.heroBtn2;
-  document.documentElement.lang = lang;
-  if (lang === 'ar') {
-    document.documentElement.dir = 'rtl';
-  } else {
-    document.documentElement.dir = 'ltr';
+  var t = i18n[lang] || i18n['en'];
+
+  /* ---- Nav ---- */
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var navKeys = ['navProducts','navOrigin','navProcess','navCatering','navTrade','navJournal'];
+  navLinks.forEach(function(a,i){ if(navKeys[i]) a.textContent = t[navKeys[i]]; });
+
+  /* ---- Shop button ---- */
+  var shopBtns = document.querySelectorAll('a.btn-primary[href*="shopify"], a.btn-primary[href*="shop"]');
+  shopBtns.forEach(function(b){ b.textContent = t.shopBtn; });
+
+  /* ---- Hero ---- */
+  var hh = document.querySelector('.hero-headline');
+  if(hh) hh.innerHTML = t.heroHeadline;
+  var hs = document.querySelector('.hero-sub');
+  if(hs) hs.textContent = t.heroSub;
+  var heroBtns = document.querySelectorAll('.hero-actions .btn');
+  if(heroBtns[0]) heroBtns[0].textContent = t.heroBtn1;
+  if(heroBtns[1]) heroBtns[1].textContent = t.heroBtn2;
+
+  /* ---- Section numbers ---- */
+  function setSectionNo(sectionId, key) {
+    var el = document.querySelector('#'+sectionId+' .section-no');
+    if(el && t[key]) el.textContent = t[key];
   }
+  setSectionNo('products','secNoProducts');
+  setSectionNo('origin','secNoOrigin');
+  setSectionNo('process','secNoProcess');
+  setSectionNo('catering','secNoCatering');
+  setSectionNo('testimonials','secNoTestimonials');
+  setSectionNo('trade','secNoTrade');
+  setSectionNo('journal','secNoJournal');
+
+  /* ---- Section titles ---- */
+  function setSectionTitle(sectionId, key) {
+    var el = document.querySelector('#'+sectionId+' .section-title');
+    if(el && t[key]) el.innerHTML = t[key];
+  }
+  setSectionTitle('products','secTitleProducts');
+  setSectionTitle('origin','secTitleOrigin');
+  setSectionTitle('process','secTitleProcess');
+  setSectionTitle('catering','secTitleCatering');
+  setSectionTitle('testimonials','secTitleTestimonials');
+  setSectionTitle('trade','secTitleTrade');
+  setSectionTitle('journal','secTitleJournal');
+
+  /* ---- Section descriptions ---- */
+  function setSectionDesc(sectionId, key) {
+    var el = document.querySelector('#'+sectionId+' .section-desc');
+    if(el && t[key]) el.textContent = t[key];
+  }
+  setSectionDesc('products','secDescProducts');
+  setSectionDesc('process','secDescProcess');
+  setSectionDesc('journal','secDescJournal');
+
+  /* ---- Product tier labels ---- */
+  var tierBadges = document.querySelectorAll('.tier-badge');
+  var tierNames = document.querySelectorAll('.tier-name');
+  var tierDescs = document.querySelectorAll('.tier-desc');
+  var tierData = [
+    {badge:'tierPremiumLabel', name:'tierPremiumName', desc:'tierPremiumDesc'},
+    {badge:'tierStdLabel',     name:'tierStdName',     desc:'tierStdDesc'},
+    {badge:'tierCatLabel',     name:'tierCatName',     desc:'tierCatDesc'},
+  ];
+  tierData.forEach(function(d,i){
+    if(tierBadges[i] && t[d.badge]) tierBadges[i].textContent = t[d.badge];
+    if(tierNames[i]  && t[d.name])  tierNames[i].innerHTML  = t[d.name];
+    if(tierDescs[i]  && t[d.desc])  tierDescs[i].textContent = t[d.desc];
+  });
+
+  /* ---- Hero stat labels ---- */
+  var statLabels = document.querySelectorAll('.stat-label');
+  var statKeys = ['statAcidity','statPress','statHeritage','statTemp'];
+  statLabels.forEach(function(el,i){ if(statKeys[i] && t[statKeys[i]]) el.textContent = t[statKeys[i]]; });
+
+  /* ---- Origin pull quote ---- */
+  var pullQ = document.querySelector('.origin-pull');
+  if(pullQ && t.originQuote) pullQ.textContent = t.originQuote;
+
+  /* ---- Origin stat labels ---- */
+  var originStatLabels = document.querySelectorAll('.origin-stat-label');
+  var originStatData = ['statAcidity','statPress','statHeritage','statTemp']; // reuse same keys (same context)
+  // Override with origin-specific if needed
+  originStatLabels.forEach(function(el){ /* leave as-is for now */ });
+
+  /* ---- Trade form ---- */
+  var tradeTitle = document.querySelector('.trade-form h3');
+  if(tradeTitle && t.tradeTitle) tradeTitle.textContent = t.tradeTitle;
+  var tradeSub = document.querySelector('.trade-form p');
+  if(tradeSub && t.tradeSubtitle) tradeSub.textContent = t.tradeSubtitle;
+  var formLabels = document.querySelectorAll('.form-label');
+  var formKeys = ['formName','formEst','formEmail','formSector','formTier','formVol','formMsg'];
+  formLabels.forEach(function(el,i){ if(formKeys[i] && t[formKeys[i]]) el.textContent = t[formKeys[i]]; });
+  var submitBtn = document.getElementById('form-submit');
+  if(submitBtn && t.formSubmit) submitBtn.textContent = t.formSubmit;
+
+  /* ---- Footer ---- */
+  var footerTagline = document.querySelector('.footer-tagline');
+  if(footerTagline && t.footerTagline) footerTagline.textContent = t.footerTagline;
+
+  /* ---- Direction for Arabic ---- */
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 }
 
 /* =============================================================
