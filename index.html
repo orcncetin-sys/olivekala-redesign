@@ -2819,8 +2819,481 @@ const i18n = {
   },
 };
 
+/* =============================================================
+   EXTENDED TRANSLATIONS — array-based content
+   (product descs, process, journal, testimonials, origin, trade)
+   ============================================================= */
+var i18nExt = {
+  en: {
+    prodDescs: [
+      "Single-grove, single-harvest. Numbered from bottle one. A finishing oil — cold-extracted the morning of harvest. Available October only.",
+      "Three oils, three harvests: early, mid-season, and a cold-infused smoked variant. Designed for chef education and sommelier programmes.",
+      "Single-extraction. 40ml per shot. Polyphenol load intact, free acidity certified. The day's olive oil requirement in one dose.",
+      "The workhorse. Nitrogen-flushed tins lock freshness from grove to kitchen. Designed for volume without compromise on acidity or polyphenol count.",
+      "Double-pack for medium-volume kitchens. Same specification as the 5L Reserve. Volume pricing reflects the working relationship, not a premium shelf.",
+      "Drum-format with dispensing tap. Same certified Ayvalık oil — same 0.3% — at the volume a catering operation requires.",
+      "Annual contracts for hotel groups, hospital catering, institutional supply. White-label packaging available. Full traceability, custom documentation."
+    ],
+    stepTitles: ["Early Harvest","Same-Day Press","Lab Certification","Tin & Dispatch"],
+    stepDescs: [
+      "Picked at 10–20% ripeness. Green fruit, high polyphenols, low free acidity. Hand-combed where terrain demands it. No mechanical damage to the fruit surface.",
+      "Fruit moves from grove to press within four hours. No overnight storage, no fermentation. Cold extraction at 24°C — temperature never exceeded. Continuous two-phase decanter.",
+      "Every batch tested for free acidity, peroxide value, UV absorption, and polyphenol concentration. IOC-standard methodology. Certificates available on request — no exceptions.",
+      "Filled into nitrogen-flushed tins and drums. Batch-numbered. Temperature-controlled logistics to the professional kitchen's door. Shelf life: 18 months from press date."
+    ],
+    journalTitles: [
+      "The case for early harvest — why we pick before peak ripeness",
+      "What 0.2% free acidity actually means on the pass",
+      "Ayvalık: why 38.7° north latitude is the point",
+      "Cooking with high-polyphenol oil — what the heat does",
+      "Why four hours matters — the oxidation window",
+      "Can a catering oil be a quality oil? The argument for not accepting the trade-off"
+    ],
+    journalPreviews: [
+      "At 10–20% ripeness, free acidity sits below 0.3% and polyphenol concentration peaks. Here is the chemistry behind the decision.",
+      "The IOC ceiling is 0.8%. Most commercial oils sit at 0.5–0.7%. At 0.2%, the chemistry changes in ways a trained palate detects immediately.",
+      "Ayvalık is not the intuitive choice. The olive's heartland runs from Andalusia through Tunisia to the Levant. Latitude is not just geography; it is flavour.",
+      "The conventional wisdom is to reserve premium EVOO for finishing. That advice was written for fragile mass-market oil. We ran the tests.",
+      "Between grove and tin, every hour is a liability. The four-hour rule is not a marketing claim. It is chemistry.",
+      "The KALA 15L drum meets the same IOC threshold as the numbered 500ml bottle. Here is why that is achievable at scale."
+    ],
+    testimonials: [
+      '"The best finishing oil I have used. Consistent batch after batch — which is what you need at this level. The acidity holds up to what the certificate says."',
+      '"We use the 5L Reserve across the entire kitchen. For that price-point and that acidity, there is nothing comparable in this market. Our guests notice it."',
+      '"We switched the entire group — five properties — to the KALA catering supply. The spec sheet was compelling. The oil confirmed it."'
+    ],
+    originParas: [
+      "Ayvalık sits at the northern edge of the olive's natural growing range. Cool nights slow the ripening of the Ayvalık variety — concentrating polyphenols, building a complexity that warm-climate oils rarely achieve. It is not the easiest place to grow olives. That is precisely the point.",
+      "We harvest at 10–20% ripeness — before the olive has completed its sugar cycle — to fix free acidity below 0.3% and capture a bitterness and pepper finish that professional palates recognise immediately. The oil is pressed cold, within four hours of leaving the grove. No overnight storage. No fermentation. No shortcuts.",
+      "The result is not wellness oil. It is not a lifestyle product. It is the ingredient a chef reaches for when the dish depends on it."
+    ],
+    cateringParas: [
+      "The KALA Catering range applies the same extraction standards and lab certification to high-volume operations. Whether you run 200 covers a night or supply a hotel group across three cities, the number on the certificate does not change: 0.3%.",
+      "Annual supply contracts include fixed-harvest pricing, preferred allocation from the October press, dedicated batch documentation, and the option to white-label under your own brand."
+    ],
+    tradeIntro: "Direct supply. No intermediaries, no shelf markups on integrity. We work with restaurants, hotels, caterers, and distributors on a direct-from-grove basis. Full traceability. Competitive pricing for volume commitments.",
+    tradeFeatures: [
+      "Premium: Glass 500ml · 1L or Tin 1L · 3L · 5L",
+      "Standard Tin: 1L · 3L · 5L",
+      "Catering drums — 5L tin, 15L dispensing tap",
+      "Annual allocation contracts (Q4 harvest)",
+      "Sample kit dispatched within 5 working days",
+      "Batch certificates on every commercial order",
+      "White-label and custom packaging available"
+    ]
+  },
+  tr: {
+    prodDescs: [
+      "Tek bahçe, tek hasat. Birinci şişeden itibaren numaralı. Bitiş yağı — hasatın sabahında soğuk sıkılmış. Yalnızca Ekim'de mevcuttur.",
+      "Üç yağ, üç hasat: erken, sezon ortası ve soğuk infüzyon dumanlı varyant. Şef eğitimi ve sommelyer programları için tasarlanmıştır.",
+      "Tek ekstraksiyon. Doz başına 40ml. Polifenol yükü bozulmamış, serbest asitlik sertifikalı. Günlük zeytinyağı ihtiyacı tek dozda.",
+      "İş yağı. Azot basınçlı tenekeler, bahçeden mutfağa tazeliği kilitler. Asitlik veya polifenol sayısında ödün vermeksizin hacim için.",
+      "Orta hacimli mutfaklar için çift paket. 5L Reserve ile aynı özellikler. Hacim fiyatlandırması iş ilişkisini yansıtır, premium raf mantığını değil.",
+      "Dağıtım musluğuyla bidon formatı. Aynı sertifikalı Ayvalık yağı — aynı %0,3 — toplu tedarik operasyonunun gerektirdiği hacimde.",
+      "Otel grupları, hastane mutfakları, kurumsal tedarik için yıllık sözleşmeler. Özel etiket ambalajı mevcuttur. Tam izlenebilirlik, özel dokümantasyon."
+    ],
+    stepTitles: ["Erken Hasat","Aynı Gün Pres","Laboratuvar Sertifikasyonu","Teneke ve Sevkiyat"],
+    stepDescs: [
+      "%10–20 olgunluğunda toplanmış. Yeşil meyve, yüksek polifenol, düşük serbest asitlik. Arazi gerektirdiğinde elle taranmış. Meyve yüzeyine mekanik hasar yok.",
+      "Meyve, bahçeden prese dört saat içinde gider. Gecelik depolama yok, fermantasyon yok. 24°C'de soğuk ekstraksiyon — sıcaklık hiç aşılmaz. Sürekli iki fazlı dekantör.",
+      "Her parti serbest asitlik, peroksit değeri, UV absorpsiyonu ve polifenol konsantrasyonu için test edilmiştir. IOC standart metodolojisi. Sertifikalar talep üzerine mevcuttur — istisna yok.",
+      "Azot basınçlı teneke ve bidonlara doldurulmuştur. Parti numaralı. Profesyonel mutfağın kapısına sıcaklık kontrollü lojistik. Raf ömrü: pres tarihinden itibaren 18 ay."
+    ],
+    journalTitles: [
+      "Erken hasat için argüman — neden maksimum olgunluktan önce topluyoruz",
+      "%0,2 serbest asitliğin serviste gerçekte ne anlama geldiği",
+      "Ayvalık: 38,7° kuzey enleminin önemi",
+      "Yüksek polifenollü yağla pişirmek — ısı ne yapar",
+      "Neden dört saat önemlidir — oksidasyon penceresi",
+      "Toplu tedarik yağı kaliteli yağ olabilir mi? Ödünü kabul etmeme argümanı"
+    ],
+    journalPreviews: [
+      "%10–20 olgunluğunda serbest asitlik %0,3'ün altında seyreder ve polifenol konsantrasyonu zirvededir. Kararın arkasındaki kimya burada.",
+      "IOC tavanı %0,8'dir. Çoğu ticari yağ %0,5–0,7 arasındadır. %0,2'de kimya, eğitimli bir damak tarafından anında fark edilecek biçimde değişir.",
+      "Ayvalık sezgisel tercih değildir. Zeytin anavatanı Endülüs'ten Tunus'a, Levant'a uzanır. Enlem yalnızca coğrafya değil; tat demektir.",
+      "Geleneksel görüş, premium sızma zeytinyağını ısıya uğratmamak yönündedir. Bu görüş kırılgan piyasa yağları için yazılmıştır. Testleri yaptık.",
+      "Bahçe ile teneke arasında geçen her saat bir risktir. Dört saatlik kural bir pazarlama iddiası değildir. Kimyadır.",
+      "KALA 15L toplu tedarik bidonu, numaralı 500ml şişeyle aynı IOC eşiğini karşılar. Bunun niçin ölçekte mümkün olduğunu açıklıyoruz."
+    ],
+    testimonials: [
+      '"Kullandığım en iyi bitiş yağı. Partiden partiye tutarlı — bu seviyede buna ihtiyaç var. Asitlik sertifikada yazana uyuyor."',
+      '"Tüm mutfak boyunca 5L Reserve kullanıyoruz. Bu fiyat noktası ve asitlik için bu piyasada karşılaştırılabilir bir şey yok. Misafirlerimiz fark ediyor."',
+      '"Tüm grubu — beş tesis — KALA toplu tedarikine geçirdik. Teknik veri sayfası ikna ediciydi. Yağ bunu doğruladı."'
+    ],
+    originParas: [
+      "Ayvalık, zeytinin doğal yetişme alanının kuzey sınırında yer alır. Serin geceler Ayvalık çeşidinin olgunlaşmasını yavaşlatır — polifenolleri yoğunlaştırır, ılıman iklimli yağların nadiren ulaştığı bir karmaşıklık inşa eder. Zeytin yetiştirmenin en kolay yeri değildir. Tam da bu yüzden burayı seçtik.",
+      "Ağacın şeker döngüsünü tamamlamadan önce, %0,3'ün altında serbest asitlik sabitlemeye ve profesyonel damakların hemen fark ettiği acılık ile karabiber bitişini yakalamaya yönelik olarak %10–20 olgunluğunda hasat ediyoruz. Yağ, bahçeyi terk etmesinden sonra dört saat içinde soğuk preslenir. Gecelik depolama yok. Fermantasyon yok. Kısayol yok.",
+      "Sonuç wellness yağı değildir. Lifestyle ürünü değildir. Tabak bunun üzerine kurulduğunda bir şefin uzandığı malzemedir."
+    ],
+    cateringParas: [
+      "KALA Toplu Tedarik serisi, Ekim ayı basında aynı ekstraksiyon standartlarını ve laboratuvar sertifikasyonunu yüksek hacimli operasyonlara uygular. Gecelik 200 servis yapın ya da üç şehirde bir otel grubuna tedarik sağlayın, sertifikadaki sayı değişmez: %0,3.",
+      "Yıllık tedarik sözleşmeleri; sabit hasat fiyatlandırmasını, Ekim basımından öncelikli tahsisi, özel parti dokümantasyonunu ve kendi markanız altında özel etiket seçeneğini kapsar."
+    ],
+    tradeIntro: "Doğrudan tedarik. Aracı yok, dürüstlük üzerinde raf farkı yok. Restoranlar, oteller, catering işletmeleri ve distribütörlerle doğrudan bahçeden çalışıyoruz. Tam izlenebilirlik. Hacim taahhütleri için rekabetçi fiyatlandırma.",
+    tradeFeatures: [
+      "Premium: Cam 500ml · 1L veya Teneke 1L · 3L · 5L",
+      "Standart Teneke: 1L · 3L · 5L",
+      "Toplu tedarik bidonları — 5L teneke, 15L dağıtım musluklu",
+      "Yıllık tahsis sözleşmeleri (Q4 hasadı)",
+      "Numune kiti 5 iş günü içinde kargoya verilir",
+      "Her ticari siparişte parti sertifikaları",
+      "Özel etiket ve özel ambalaj mevcuttur"
+    ]
+  },
+  de: {
+    prodDescs: [
+      "Einzelgut, einzelne Ernte. Nummeriert ab Flasche eins. Ein Finishing-Öl — kaltextrahiert am Morgen der Ernte. Nur im Oktober erhältlich.",
+      "Drei Öle, drei Ernten: früh, in der Saison und eine kaltinfundierte Räuchervariante. Für Kochausbildungen und Sommelierprogramme konzipiert.",
+      "Einzelextraktion. 40 ml pro Shot. Polyphenolgehalt intakt, freie Säure zertifiziert. Der tägliche Olivenölbedarf in einer Dosis.",
+      "Das Arbeitstier. Stickstoffgespülte Dosen sichern Frische vom Hain bis in die Küche. Für Volumen konzipiert, ohne Abstriche bei Säure oder Polyphenolgehalt.",
+      "Doppelpack für Küchen mittlerer Kapazität. Gleiche Spezifikation wie das 5L Reserve. Volumenspreise spiegeln die Arbeitsbeziehung wider, kein Premiumregal.",
+      "Kanistenformat mit Zapfhahn. Dasselbe zertifizierte Ayvalık-Öl — gleiche 0,3 % — im Volumen, das ein Cateringbetrieb benötigt.",
+      "Jahresverträge für Hotelgruppen, Krankenhausverpflegung, institutionelle Versorgung. White-Label-Verpackung verfügbar. Vollständige Rückverfolgbarkeit, individuelle Dokumentation."
+    ],
+    stepTitles: ["Frühernte","Tagespressung","Laborzertifizierung","Dose & Versand"],
+    stepDescs: [
+      "Geerntet bei 10–20 % Reife. Grüne Früchte, hohe Polyphenole, niedrige freie Säure. Handkämmung dort, wo das Gelände es erfordert. Keine mechanischen Schäden an der Fruchtoberfläche.",
+      "Die Früchte gelangen innerhalb von vier Stunden vom Hain zur Presse. Keine Übernachtlagerung, keine Fermentation. Kaltextraktion bei 24 °C — Temperatur wird nie überschritten. Kontinuierlicher Zweiphasendekanter.",
+      "Jede Charge wird auf freie Säure, Peroxidwert, UV-Absorption und Polyphenolkonzentration geprüft. IOC-Standardmethodik. Zertifikate auf Anfrage erhältlich — keine Ausnahmen.",
+      "In stickstoffgespülte Dosen und Kanister abgefüllt. Chargennummeriert. Temperaturgeführte Logistik bis zur Tür der Profiküche. Haltbarkeit: 18 Monate ab Pressdatum."
+    ],
+    journalTitles: [
+      "Der Fall für die Frühernte — warum wir vor dem Höhepunkt der Reife ernten",
+      "Was 0,2 % freie Säure auf dem Pass wirklich bedeutet",
+      "Ayvalık: warum der 38,7. nördliche Breitengrad entscheidend ist",
+      "Kochen mit polyphenolreichem Öl — was die Hitze bewirkt",
+      "Warum vier Stunden entscheidend sind — das Oxidationsfenster",
+      "Kann ein Catering-Öl ein Qualitätsöl sein? Das Argument gegen den Kompromiss"
+    ],
+    journalPreviews: [
+      "Bei 10–20 % Reife liegt die freie Säure unter 0,3 % und die Polyphenolkonzentration erreicht ihren Höchststand. Die Chemie hinter dieser Entscheidung.",
+      "Die IOC-Obergrenze liegt bei 0,8 %. Die meisten Handelsöle bewegen sich zwischen 0,5–0,7 %. Bei 0,2 % verändert sich die Chemie auf eine Weise, die ein geschulter Gaumen sofort erkennt.",
+      "Ayvalık ist nicht die naheliegende Wahl. Das Kerngebiet des Olivenanbaus erstreckt sich von Andalusien über Tunesien bis in die Levante. Breitengrad ist nicht nur Geographie — er ist Geschmack.",
+      "Die gängige Meinung ist, natives Olivenöl extra für Finishing zu reservieren. Dieser Rat wurde für fragile Massenware geschrieben. Wir haben die Tests gemacht.",
+      "Jede Stunde zwischen Hain und Dose ist eine Belastung. Die Vier-Stunden-Regel ist kein Marketingversprechen. Es ist Chemie.",
+      "Das KALA 15L-Fass erfüllt denselben IOC-Schwellenwert wie die nummerierte 500ml-Flasche. Warum das im großen Maßstab möglich ist, erklären wir hier."
+    ],
+    testimonials: [
+      '"Das beste Finishing-Öl, das ich je verwendet habe. Charge für Charge konstant — was man auf diesem Niveau braucht. Die Säure entspricht dem, was auf dem Zertifikat steht."',
+      '"Wir verwenden das 5L Reserve in der gesamten Küche. Für diesen Preispunkt und diese Säure gibt es nichts Vergleichbares auf diesem Markt. Unsere Gäste merken es."',
+      '"Wir haben die gesamte Gruppe — fünf Häuser — auf KALA Catering umgestellt. Das Datenblatt war überzeugend. Das Öl hat es bestätigt."'
+    ],
+    originParas: [
+      "Ayvalık liegt am nördlichen Rand des natürlichen Anbaugebiets der Olive. Kühle Nächte verlangsamen die Reifung der Ayvalık-Sorte — Polyphenole konzentrieren sich, eine Komplexität entsteht, die in wärmeren Klimaregionen selten erreicht wird. Es ist nicht der einfachste Ort für den Olivenanbau. Genau das ist der Punkt.",
+      "Wir ernten bei 10–20 % Reife — bevor die Olive ihren Zuckerzyklus abgeschlossen hat — um die freie Säure unter 0,3 % zu fixieren und die Bitterkeit und den Pfefferabgang zu erhalten, den professionelle Gaumen sofort erkennen. Das Öl wird kalt gepresst, innerhalb von vier Stunden nach der Ernte. Keine Übernachtlagerung. Keine Fermentation. Keine Abkürzungen.",
+      "Das Ergebnis ist kein Wellness-Öl. Es ist kein Lifestyle-Produkt. Es ist die Zutat, nach der ein Koch greift, wenn das Gericht davon abhängt."
+    ],
+    cateringParas: [
+      "Das KALA Catering-Sortiment wendet dieselben Extraktionsstandards und Laborzertifizierungen auf Großbetriebe an. Ob Sie 200 Gedecke pro Nacht bedienen oder eine Hotelgruppe in drei Städten beliefern — die Zahl auf dem Zertifikat ändert sich nicht: 0,3 %.",
+      "Jahreslieferverträge beinhalten feste Erntepreise, bevorzugte Zuteilung aus der Oktoberpressung, dedizierte Chargendokumentation und die Option auf White-Label-Verpackung."
+    ],
+    tradeIntro: "Direktlieferung. Keine Zwischenhändler, keine Regalaufschläge zu Lasten der Integrität. Wir arbeiten mit Restaurants, Hotels, Caterern und Distributoren direkt ab Hain. Vollständige Rückverfolgbarkeit. Wettbewerbsfähige Preise für Volumenengagements.",
+    tradeFeatures: [
+      "Premium: Glas 500ml · 1L oder Dose 1L · 3L · 5L",
+      "Standard-Dose: 1L · 3L · 5L",
+      "Catering-Kanister — 5L Dose, 15L mit Zapfhahn",
+      "Jährliche Kontingentverträge (Q4-Ernte)",
+      "Musterkit wird innerhalb von 5 Werktagen versandt",
+      "Chargenzertifikate bei jeder Handelsbestellung",
+      "White-Label und individuelle Verpackung verfügbar"
+    ]
+  },
+  ar: {
+    prodDescs: [
+      "بستان واحد، حصاد واحد. مُرقَّم من الزجاجة الأولى. زيت تشطيب — مستخلص بالبرودة في صباح الحصاد. متاح في أكتوبر فقط.",
+      "ثلاثة زيوت، ثلاثة مواسم: مبكر، منتصف الموسم، ومتغير مدخن بالضخ البارد. مصمم لتعليم الشيف وبرامج السوميلييه.",
+      "استخلاص واحد. 40 مل لكل جرعة. حمل البوليفينول سليم، الحموضة الحرة معتمدة. متطلب زيت الزيتون اليومي في جرعة واحدة.",
+      "زيت العمل. العلب المملوءة بالنيتروجين تحافظ على النضارة من البستان إلى المطبخ. للحجم دون تنازل في الحموضة أو عدد البوليفينول.",
+      "عبوة مزدوجة للمطابخ متوسطة الحجم. نفس مواصفات 5L Reserve. يعكس تسعير الحجم العلاقة المهنية، لا منطق الرف الفاخر.",
+      "صيغة البرميل مع صنبور التوزيع. نفس زيت أيفاليك المعتمد — نفس 0.3% — بالحجم الذي تتطلبه عمليات التموين.",
+      "عقود سنوية لمجموعات الفنادق وتموين المستشفيات والتوريد المؤسسي. تغليف بالعلامة البيضاء متاح. تتبع كامل، توثيق مخصص."
+    ],
+    stepTitles: ["الحصاد المبكر","الضغط في نفس اليوم","اعتماد المختبر","التعليب والشحن"],
+    stepDescs: [
+      "يُحصد عند نضج 10–20%. ثمار خضراء، بوليفينول عالٍ، حموضة حرة منخفضة. مُشطّط يدويًا حيث يتطلب التضاريس. لا ضرر ميكانيكي لسطح الثمرة.",
+      "تنتقل الثمار من البستان إلى المعصرة خلال أربع ساعات. لا تخزين ليلي، لا تخمر. استخلاص بارد عند 24°م — لا يُتجاوز هذا النطاق أبدًا. فاصل مستمر ثنائي الطور.",
+      "تُختبر كل دفعة للحموضة الحرة وقيمة البيروكسيد وامتصاص الأشعة فوق البنفسجية وتركيز البوليفينول. منهجية IOC القياسية. الشهادات متاحة عند الطلب — لا استثناءات.",
+      "مملوء في علب وبراميل مملوءة بالنيتروجين. مُرقَّم بالدفعة. لوجستيات مضبوطة الحرارة حتى باب المطبخ الاحترافي. مدة الصلاحية: 18 شهرًا من تاريخ العصر."
+    ],
+    journalTitles: [
+      "الحجة للحصاد المبكر — لماذا نحصد قبل الذروة",
+      "ما تعنيه حموضة 0.2% فعلاً عند التقديم",
+      "أيفاليك: لماذا خط عرض 38.7° شمالاً هو المحور",
+      "الطهي بزيت غني بالبوليفينول — ما تفعله الحرارة",
+      "لماذا تهم الأربع ساعات — نافذة الأكسدة",
+      "هل يمكن لزيت التموين أن يكون زيت جودة؟ الحجة لرفض المساومة"
+    ],
+    journalPreviews: [
+      "عند نضج 10–20%، تكون الحموضة الحرة أقل من 0.3% وتبلغ غزارة البوليفينول ذروتها. الكيمياء وراء هذا القرار هنا.",
+      "سقف IOC هو 0.8%. تتراوح معظم الزيوت التجارية بين 0.5–0.7%. عند 0.2%، تتغير الكيمياء بطريقة يلتقطها الذوق المتدرب فورًا.",
+      "أيفاليك ليست الخيار البديهي. يمتد معقل الزيتون من الأندلس عبر تونس إلى المشرق. خط العرض ليس مجرد جغرافيا؛ إنه نكهة.",
+      "الحكمة الشائعة هي الاحتفاظ بزيت الزيتون البكر الممتاز للتشطيب. هذه النصيحة كُتبت لزيوت السوق الهشة. أجرينا الاختبارات.",
+      "بين البستان والعلبة، كل ساعة خطر. قاعدة الأربع ساعات ليست ادعاءً تسويقيًا. إنها كيمياء.",
+      "يستوفي برميل KALA 15L نفس عتبة IOC كزجاجة 500ml المُرقَّمة. نشرح هنا لماذا هذا ممكن على نطاق واسع."
+    ],
+    testimonials: [
+      '"أفضل زيت تشطيب استخدمته. ثابت من دفعة إلى دفعة — وهذا ما تحتاجه على هذا المستوى. الحموضة متوافقة مع ما تقوله الشهادة."',
+      '"نستخدم 5L Reserve في جميع أنحاء المطبخ. بهذا السعر وهذه الحموضة، لا يوجد ما يُقارنه في هذا السوق. يلاحظه ضيوفنا."',
+      '"حولنا المجموعة بالكامل — خمس منشآت — إلى إمدادات KALA للتموين. كانت صفحة المواصفات مقنعة. الزيت أكد ذلك."'
+    ],
+    originParas: [
+      "تقع أيفاليك عند الحافة الشمالية للنطاق الطبيعي لنمو الزيتون. تُبطئ الليالي الباردة نضج صنف أيفاليك — مُركِّزةً البوليفينول، بانيةً تعقيدًا نادرًا ما تحققه زيوت المناخات الدافئة. ليس أسهل مكان لزراعة الزيتون. هذا بالضبط هو الهدف.",
+      "نحصد عند نضج 10–20% — قبل أن تُكمل الزيتونة دورة السكر — لتثبيت الحموضة الحرة دون 0.3% والحصول على نهاية المرارة والفلفل التي يدركها الذوق الاحترافي فورًا. يُعصر الزيت باردًا خلال أربع ساعات من مغادرة البستان. لا تخزين ليلي. لا تخمر. لا اختصارات.",
+      "النتيجة ليست زيت عافية. ليست منتج أسلوب حياة. إنها المكوّن الذي يمد إليه الشيف يده حين يتوقف الطبق عليه."
+    ],
+    cateringParas: [
+      "تُطبق مجموعة KALA للتموين نفس معايير الاستخلاص وشهادات المختبر على العمليات عالية الحجم. سواء كنت تقدم 200 غطاء في الليلة أو تورّد لمجموعة فنادق في ثلاث مدن، الرقم على الشهادة لا يتغير: 0.3%.",
+      "تشمل عقود التوريد السنوية تسعير الحصاد الثابت والحصة المفضلة من معصرة أكتوبر وتوثيق الدفعات المخصص وخيار التوسيم الخاص تحت علامتك التجارية."
+    ],
+    tradeIntro: "توريد مباشر. لا وسطاء، ولا هوامش رف على حساب النزاهة. نعمل مع المطاعم والفنادق وشركات التموين والموزعين على أساس مباشر من البستان. تتبع كامل. تسعير تنافسي لالتزامات الحجم.",
+    tradeFeatures: [
+      "بريميوم: زجاج 500ml · 1L أو علبة 1L · 3L · 5L",
+      "علبة ستاندارد: 1L · 3L · 5L",
+      "براميل تموين — علبة 5L، صنبور توزيع 15L",
+      "عقود تخصيص سنوية (حصاد Q4)",
+      "مجموعة العينات تُشحن خلال 5 أيام عمل",
+      "شهادات الدفعات مع كل طلب تجاري",
+      "التوسيم الخاص والتغليف المخصص متاحان"
+    ]
+  },
+  ru: {
+    prodDescs: [
+      "Единственная роща, единственный урожай. Пронумеровано с первой бутылки. Финишное масло — холодный отжим утром сбора. Доступно только в октябре.",
+      "Три масла, три урожая: ранний, середина сезона и холодно-инфузный копчёный вариант. Создано для обучения поваров и программ сомелье.",
+      "Единственная экстракция. 40 мл на порцию. Полифенольная нагрузка не нарушена, свободная кислотность сертифицирована. Суточная норма оливкового масла в одной дозе.",
+      "Рабочая лошадка. Азотозаполненные банки сохраняют свежесть от рощи до кухни. Объём без компромисса по кислотности или полифенолам.",
+      "Двойная упаковка для кухонь среднего объёма. Те же характеристики, что и 5L Reserve. Цены на объём отражают деловые отношения, а не логику премиального стеллажа.",
+      "Барабанный формат с распределительным краном. То же сертифицированное масло Айвалык — те же 0,3% — в объёме, необходимом для кейтеринга.",
+      "Годовые контракты для гостиничных групп, больничного кейтеринга, институционального снабжения. Упаковка white-label доступна. Полная прослеживаемость, индивидуальная документация."
+    ],
+    stepTitles: ["Ранний сбор","Прессование в тот же день","Лабораторная сертификация","Банка и отгрузка"],
+    stepDescs: [
+      "Собрано при 10–20% зрелости. Зелёный плод, высокое содержание полифенолов, низкая свободная кислотность. Ручной сбор там, где этого требует рельеф. Никакого механического повреждения поверхности плода.",
+      "Плоды перемещаются от рощи до пресса в течение четырёх часов. Никакого ночного хранения, никакого брожения. Холодная экстракция при 24°C — температура никогда не превышается. Непрерывный двухфазный декантер.",
+      "Каждая партия тестируется на свободную кислотность, пероксидное число, УФ-поглощение и концентрацию полифенолов. Стандартная методология МСО. Сертификаты по запросу — без исключений.",
+      "Расфасовано в азотозаполненные банки и бочки. Пронумеровано по партиям. Логистика с контролем температуры до двери профессиональной кухни. Срок хранения: 18 месяцев с даты отжима."
+    ],
+    journalTitles: [
+      "Доводы в пользу раннего сбора — почему мы убираем урожай до пика зрелости",
+      "Что 0,2% свободной кислотности реально означает на подаче",
+      "Айвалык: почему 38,7° северной широты — это главное",
+      "Приготовление пищи на масле с высоким содержанием полифенолов — что делает жар",
+      "Почему важны четыре часа — окно окисления",
+      "Может ли кейтеринговое масло быть качественным? Аргумент против компромисса"
+    ],
+    journalPreviews: [
+      "При 10–20% зрелости свободная кислотность остаётся ниже 0,3%, а концентрация полифенолов достигает пика. Химия этого решения здесь.",
+      "Потолок МСО — 0,8%. Большинство коммерческих масел находится в диапазоне 0,5–0,7%. При 0,2% химия меняется так, как подготовленное нёбо замечает немедленно.",
+      "Айвалык — не очевидный выбор. Ареал оливкового дерева простирается от Андалусии через Тунис до Леванта. Широта — это не просто география; это вкус.",
+      "Общепринятое мнение — беречь премиальное EVOO для заправки. Этот совет был написан для хрупкого массового масла. Мы провели тесты.",
+      "Между рощей и банкой каждый час — это риск. Правило четырёх часов — не маркетинговое заявление. Это химия.",
+      "Бочка KALA 15L соответствует тому же порогу МСО, что и нумерованная бутылка 500 мл. Объясняем, почему это достижимо в масштабе."
+    ],
+    testimonials: [
+      '"Лучшее финишное масло, которое я использовал. Постоянство от партии к партии — именно это нужно на данном уровне. Кислотность соответствует указанной в сертификате."',
+      '"Мы используем 5L Reserve по всей кухне. При таком соотношении цены и кислотности нет ничего сопоставимого на этом рынке. Наши гости это замечают."',
+      '"Мы перевели всю группу — пять объектов — на поставки KALA Catering. Паспорт данных был убедительным. Масло подтвердило это."'
+    ],
+    originParas: [
+      "Айвалык расположен на северном крае естественного ареала произрастания оливы. Прохладные ночи замедляют созревание сорта Айвалык — концентрируют полифенолы, формируя сложность, которой масла из тёплого климата редко достигают. Это не самое лёгкое место для выращивания олив. Именно в этом весь смысл.",
+      "Мы собираем урожай при 10–20% зрелости — до завершения сахарного цикла плода — чтобы зафиксировать свободную кислотность ниже 0,3% и уловить горечь и перечную нотку финиша, которую профессиональное нёбо узнаёт сразу. Масло отжимается холодным способом в течение четырёх часов после сбора. Никакого ночного хранения. Никакого брожения. Никаких сокращений.",
+      "Результат — не wellness-масло. Не lifestyle-продукт. Это ингредиент, за которым тянется повар, когда блюдо зависит от него."
+    ],
+    cateringParas: [
+      "Линейка KALA Catering применяет те же стандарты экстракции и лабораторной сертификации к высокообъёмным операциям. Неважно, обслуживаете ли вы 200 посадочных мест за ночь или снабжаете гостиничную группу в трёх городах — число в сертификате не меняется: 0,3%.",
+      "Годовые контракты на поставку включают фиксированное ценообразование урожая, приоритетное распределение из октябрьского отжима, специальную документацию по партиям и возможность white-label под вашим брендом."
+    ],
+    tradeIntro: "Прямая поставка. Никаких посредников, никаких наценок на стеллажах в ущерб честности. Мы работаем с ресторанами, отелями, кейтерингом и дистрибьюторами напрямую — от рощи. Полная прослеживаемость. Конкурентные цены для объёмных обязательств.",
+    tradeFeatures: [
+      "Премиум: стекло 500мл · 1л или банка 1л · 3л · 5л",
+      "Стандартная банка: 1л · 3л · 5л",
+      "Кейтеринговые бочки — банка 5л, кран 15л",
+      "Годовые контракты на распределение (урожай Q4)",
+      "Образцовый комплект отправляется в течение 5 рабочих дней",
+      "Сертификаты партий с каждым коммерческим заказом",
+      "White-label и индивидуальная упаковка доступны"
+    ]
+  },
+  fr: {
+    prodDescs: [
+      "Monodomaine, monorécolte. Numéroté dès la première bouteille. Une huile de finition — extraite à froid le matin de la récolte. Disponible en octobre uniquement.",
+      "Trois huiles, trois récoltes : précoce, mi-saison et variante fumée par infusion à froid. Conçu pour la formation des chefs et les programmes de sommellerie.",
+      "Extraction unique. 40 ml par dose. Charge polyphénolique intacte, acidité libre certifiée. La dose journalière d'huile d'olive en une seule prise.",
+      "Le cheval de travail. Les boîtes rinçées à l'azote préservent la fraîcheur de l'oliveraie à la cuisine. Pour le volume sans compromis sur l'acidité ou les polyphénols.",
+      "Double pack pour les cuisines de volume moyen. Même spécification que le 5L Reserve. La tarification au volume reflète la relation de travail, pas une logique de rayon premium.",
+      "Format bidon avec robinet distributeur. La même huile certifiée d'Ayvalık — les mêmes 0,3 % — dans le volume qu'une opération de restauration collective exige.",
+      "Contrats annuels pour groupes hôteliers, restauration hospitalière, fourniture institutionnelle. Conditionnement marque blanche disponible. Traçabilité complète, documentation personnalisée."
+    ],
+    stepTitles: ["Récolte précoce","Pressage le jour même","Certification laboratoire","Mise en boîte & expédition"],
+    stepDescs: [
+      "Cueillie à 10–20 % de maturité. Fruit vert, polyphénols élevés, faible acidité libre. Peigne manuel là où le terrain l'exige. Aucun dommage mécanique à la surface du fruit.",
+      "Les fruits passent de l'oliveraie à la presse en quatre heures. Aucun stockage de nuit, aucune fermentation. Extraction à froid à 24 °C — température jamais dépassée. Décanteur continu à deux phases.",
+      "Chaque lot est testé pour l'acidité libre, l'indice de peroxyde, l'absorption UV et la concentration en polyphénols. Méthodologie standard COI. Certificats disponibles sur demande — sans exception.",
+      "Conditionné dans des boîtes et fûts rincés à l'azote. Numéroté par lot. Logistique à température contrôlée jusqu'à la porte de la cuisine professionnelle. Durée de conservation : 18 mois à partir de la date de pressage."
+    ],
+    journalTitles: [
+      "L'argument pour la récolte précoce — pourquoi nous cueillons avant le pic de maturité",
+      "Ce que 0,2 % d'acidité libre signifie réellement au passe",
+      "Ayvalık : pourquoi le 38,7e parallèle nord est déterminant",
+      "Cuisiner avec une huile riche en polyphénols — ce que la chaleur fait",
+      "Pourquoi quatre heures comptent — la fenêtre d'oxydation",
+      "Une huile de restauration peut-elle être une huile de qualité ? L'argument contre le compromis"
+    ],
+    journalPreviews: [
+      "À 10–20 % de maturité, l'acidité libre est inférieure à 0,3 % et la concentration en polyphénols culmine. La chimie derrière cette décision.",
+      "Le plafond COI est de 0,8 %. La plupart des huiles commerciales se situent entre 0,5 et 0,7 %. À 0,2 %, la chimie change d'une façon qu'un palais averti détecte immédiatement.",
+      "Ayvalık n'est pas le choix intuitif. L'aire naturelle de l'olive s'étend de l'Andalousie à la Tunisie jusqu'au Levant. La latitude, ce n'est pas que de la géographie ; c'est de la saveur.",
+      "La sagesse conventionnelle consiste à réserver l'huile d'olive vierge extra premium pour la finition. Ce conseil a été écrit pour des huiles fragiles de grande distribution. Nous avons fait les tests.",
+      "Entre l'oliveraie et la boîte, chaque heure est un risque. La règle des quatre heures n'est pas un argument marketing. C'est de la chimie.",
+      "Le fût KALA 15L répond au même seuil COI que la bouteille numérotée 500 ml. Voici pourquoi c'est réalisable à grande échelle."
+    ],
+    testimonials: [
+      '"La meilleure huile de finition que j\'aie jamais utilisée. Constante d\'un lot à l\'autre — c\'est ce dont on a besoin à ce niveau. L\'acidité correspond à ce que dit le certificat."',
+      '"Nous utilisons le 5L Reserve dans toute la cuisine. Pour ce rapport qualité-prix et cette acidité, il n\'y a rien de comparable sur ce marché. Nos clients le remarquent."',
+      '"Nous avons converti l\'ensemble du groupe — cinq établissements — aux approvisionnements KALA Catering. La fiche technique était convaincante. L\'huile l\'a confirmé."'
+    ],
+    originParas: [
+      "Ayvalık se trouve à la limite nord de l'aire naturelle de l'olivier. Les nuits fraîches ralentissent la maturation de la variété Ayvalık — concentrant les polyphénols, construisant une complexité que les huiles des climats chauds atteignent rarement. Ce n'est pas l'endroit le plus facile pour cultiver des olives. C'est précisément le but.",
+      "Nous récoltons à 10–20 % de maturité — avant que l'olive n'ait achevé son cycle sucrier — pour fixer l'acidité libre sous 0,3 % et capturer l'amertume et le poivré en finale que les palais professionnels reconnaissent immédiatement. L'huile est pressée à froid dans les quatre heures suivant la cueillette. Aucun stockage nocturne. Aucune fermentation. Aucun raccourci.",
+      "Le résultat n'est pas une huile bien-être. Ce n'est pas un produit de style de vie. C'est l'ingrédient vers lequel un chef tend la main quand le plat en dépend."
+    ],
+    cateringParas: [
+      "La gamme KALA Restauration applique les mêmes standards d'extraction et de certification laboratoire aux opérations à grand volume. Que vous serviez 200 couverts par nuit ou approvisionniez un groupe hôtelier dans trois villes, le chiffre sur le certificat ne change pas : 0,3 %.",
+      "Les contrats d'approvisionnement annuels comprennent une tarification fixe de la récolte, une allocation prioritaire depuis le pressage d'octobre, une documentation dédiée par lot et l'option d'étiquetage sous marque blanche."
+    ],
+    tradeIntro: "Approvisionnement direct. Pas d'intermédiaires, pas de marges de rayon au détriment de l'intégrité. Nous travaillons avec les restaurants, les hôtels, les traiteurs et les distributeurs sur une base directe depuis l'oliveraie. Traçabilité complète. Tarification compétitive pour les engagements sur volume.",
+    tradeFeatures: [
+      "Premium : verre 500ml · 1L ou boîte 1L · 3L · 5L",
+      "Boîte standard : 1L · 3L · 5L",
+      "Fûts de restauration — boîte 5L, robinet distributeur 15L",
+      "Contrats d'allocation annuels (récolte Q4)",
+      "Kit d'échantillons expédié dans les 5 jours ouvrés",
+      "Certificats de lot avec chaque commande commerciale",
+      "Étiquetage sous marque blanche et conditionnement personnalisé disponibles"
+    ]
+  },
+  es: {
+    prodDescs: [
+      "Finca única, cosecha única. Numerado desde la primera botella. Un aceite de acabado — extracción en frío la mañana de la cosecha. Disponible solo en octubre.",
+      "Tres aceites, tres cosechas: temprana, de mitad de temporada y una variante ahumada por infusión en frío. Diseñado para la formación de chefs y programas de sumiller.",
+      "Extracción única. 40 ml por dosis. Carga de polifenoles intacta, acidez libre certificada. El requerimiento diario de aceite de oliva en una sola toma.",
+      "El caballo de batalla. Las latas purgadas con nitrógeno preservan la frescura del olivar a la cocina. Para el volumen sin compromiso en acidez o recuento de polifenoles.",
+      "Pack doble para cocinas de volumen medio. Mismas especificaciones que el 5L Reserve. El precio por volumen refleja la relación de trabajo, no la lógica de un estante premium.",
+      "Formato bidón con grifo dispensador. El mismo aceite certificado de Ayvalık — el mismo 0,3% — en el volumen que requiere una operación de catering.",
+      "Contratos anuales para grupos hoteleros, catering hospitalario, suministro institucional. Embalaje de marca blanca disponible. Trazabilidad completa, documentación personalizada."
+    ],
+    stepTitles: ["Cosecha temprana","Prensado el mismo día","Certificación de laboratorio","Enlatado y expedición"],
+    stepDescs: [
+      "Recolectado al 10–20% de madurez. Fruto verde, polifenoles altos, acidez libre baja. Peinado manual donde el terreno lo exige. Sin daño mecánico en la superficie del fruto.",
+      "Los frutos pasan del olivar a la prensa en cuatro horas. Sin almacenamiento nocturno, sin fermentación. Extracción en frío a 24°C — temperatura nunca superada. Decantador continuo de dos fases.",
+      "Cada lote se analiza para acidez libre, índice de peróxido, absorción UV y concentración de polifenoles. Metodología estándar del COI. Certificados disponibles previa solicitud — sin excepciones.",
+      "Envasado en latas y bidones purgados con nitrógeno. Numerado por lote. Logística con control de temperatura hasta la puerta de la cocina profesional. Vida útil: 18 meses desde la fecha de prensado."
+    ],
+    journalTitles: [
+      "El argumento de la cosecha temprana — por qué recolectamos antes del pico de madurez",
+      "Lo que el 0,2% de acidez libre significa realmente en el pase",
+      "Ayvalık: por qué el paralelo 38,7° norte es decisivo",
+      "Cocinar con aceite rico en polifenoles — lo que hace el calor",
+      "Por qué importan las cuatro horas — la ventana de oxidación",
+      "¿Puede un aceite de catering ser un aceite de calidad? El argumento para no aceptar el compromiso"
+    ],
+    journalPreviews: [
+      "Al 10–20% de madurez, la acidez libre se sitúa por debajo del 0,3% y la concentración de polifenoles alcanza su punto máximo. La química detrás de esta decisión.",
+      "El techo del COI es del 0,8%. La mayoría de los aceites comerciales se sitúan en 0,5–0,7%. Al 0,2%, la química cambia de una manera que un paladar entrenado detecta de inmediato.",
+      "Ayvalık no es la opción intuitiva. El corazón del olivar se extiende desde Andalucía por Túnez hasta el Levante. La latitud no es solo geografía; es sabor.",
+      "La sabiduría convencional es reservar el EVOO premium para el acabado. Ese consejo fue escrito para aceites frágiles de gran consumo. Realizamos las pruebas.",
+      "Entre el olivar y la lata, cada hora es un riesgo. La regla de las cuatro horas no es una afirmación de marketing. Es química.",
+      "El bidón KALA 15L cumple el mismo umbral del COI que la botella numerada de 500 ml. Aquí explicamos por qué es posible a escala."
+    ],
+    testimonials: [
+      '"El mejor aceite de acabado que he utilizado. Consistente lote tras lote — que es lo que se necesita a este nivel. La acidez coincide con lo que dice el certificado."',
+      '"Usamos el 5L Reserve en toda la cocina. Por ese precio y esa acidez, no hay nada comparable en este mercado. Nuestros comensales lo notan."',
+      '"Convertimos todo el grupo — cinco propiedades — al suministro de catering KALA. La ficha técnica era convincente. El aceite lo confirmó."'
+    ],
+    originParas: [
+      "Ayvalık se encuentra en el límite norte del área de cultivo natural del olivo. Las noches frescas ralentizan la maduración de la variedad Ayvalık — concentrando polifenoles, construyendo una complejidad que los aceites de climas cálidos raramente alcanzan. No es el lugar más fácil para cultivar aceitunas. Ese es precisamente el punto.",
+      "Cosechamos al 10–20% de madurez — antes de que la aceituna haya completado su ciclo de azúcar — para fijar la acidez libre por debajo del 0,3% y capturar el amargor y el retrogusto picante que los paladares profesionales reconocen de inmediato. El aceite se prensa en frío dentro de las cuatro horas de dejar el olivar. Sin almacenamiento nocturno. Sin fermentación. Sin atajos.",
+      "El resultado no es un aceite wellness. No es un producto de estilo de vida. Es el ingrediente al que un chef acude cuando el plato depende de él."
+    ],
+    cateringParas: [
+      "La gama KALA Catering aplica los mismos estándares de extracción y certificación de laboratorio a las operaciones de gran volumen. Tanto si gestiona 200 cubiertos por noche como si suministra a un grupo hotelero en tres ciudades, el número del certificado no cambia: 0,3%.",
+      "Los contratos de suministro anuales incluyen precios fijos de cosecha, asignación preferente de la prensa de octubre, documentación dedicada por lote y la opción de etiquetado de marca blanca."
+    ],
+    tradeIntro: "Suministro directo. Sin intermediarios, sin márgenes de estante a costa de la integridad. Trabajamos con restaurantes, hoteles, empresas de catering y distribuidores en base directa desde el olivar. Trazabilidad completa. Precios competitivos para compromisos de volumen.",
+    tradeFeatures: [
+      "Premium: vidrio 500ml · 1L o lata 1L · 3L · 5L",
+      "Lata estándar: 1L · 3L · 5L",
+      "Bidones de catering — lata 5L, grifo dispensador 15L",
+      "Contratos de asignación anual (cosecha Q4)",
+      "Kit de muestras enviado en 5 días hábiles",
+      "Certificados de lote con cada pedido comercial",
+      "Etiquetado de marca blanca y envase personalizado disponibles"
+    ]
+  },
+  it: {
+    prodDescs: [
+      "Tenuta singola, raccolta singola. Numerato dalla prima bottiglia. Un olio da finitura — estratto a freddo la mattina della raccolta. Disponibile solo in ottobre.",
+      "Tre oli, tre raccolti: precoce, metà stagione e una variante affumicata per infusione a freddo. Progettato per la formazione degli chef e i programmi di sommelier.",
+      "Estrazione singola. 40 ml per dose. Carico polifenolico intatto, acidità libera certificata. Il fabbisogno giornaliero di olio d'oliva in un'unica dose.",
+      "Il cavallo di battaglia. Le lattine spurgate con azoto preservano la freschezza dall'uliveto alla cucina. Per il volume senza compromessi su acidità o polifenoli.",
+      "Confezione doppia per cucine di volume medio. Stessa specifica del 5L Reserve. Il prezzo per volume riflette il rapporto di lavoro, non la logica di uno scaffale premium.",
+      "Formato fusto con rubinetto dispensatore. Lo stesso olio certificato di Ayvalık — lo stesso 0,3% — nel volume richiesto da un'operazione di catering.",
+      "Contratti annuali per gruppi alberghieri, ristorazione ospedaliera, forniture istituzionali. Imballaggio white-label disponibile. Piena tracciabilità, documentazione personalizzata."
+    ],
+    stepTitles: ["Raccolta precoce","Frangitura in giornata","Certificazione di laboratorio","Latta e spedizione"],
+    stepDescs: [
+      "Raccolto al 10–20% di maturità. Frutto verde, polifenoli alti, acidità libera bassa. Pettinatura manuale dove il terreno lo richiede. Nessun danno meccanico alla superficie del frutto.",
+      "I frutti si spostano dall'uliveto al frantoio entro quattro ore. Nessuno stoccaggio notturno, nessuna fermentazione. Estrazione a freddo a 24°C — temperatura mai superata. Decantatore continuo a due fasi.",
+      "Ogni lotto viene analizzato per acidità libera, numero di perossidi, assorbimento UV e concentrazione di polifenoli. Metodologia standard COI. Certificati disponibili su richiesta — senza eccezioni.",
+      "Confezionato in lattine e fusti spurgati con azoto. Numerato per lotto. Logistica a temperatura controllata fino alla porta della cucina professionale. Durata: 18 mesi dalla data di frangitura."
+    ],
+    journalTitles: [
+      "L'argomento per la raccolta precoce — perché raccogliamo prima del picco di maturità",
+      "Cosa significa realmente 0,2% di acidità libera al pass",
+      "Ayvalık: perché il 38,7° parallelo nord è il punto",
+      "Cucinare con olio ricco di polifenoli — cosa fa il calore",
+      "Perché quattro ore contano — la finestra di ossidazione",
+      "Un olio da catering può essere un olio di qualità? L'argomento per non accettare il compromesso"
+    ],
+    journalPreviews: [
+      "Al 10–20% di maturità, l'acidità libera è inferiore allo 0,3% e la concentrazione di polifenoli raggiunge il picco. La chimica dietro questa decisione.",
+      "Il tetto del COI è dello 0,8%. La maggior parte degli oli commerciali si attesta tra 0,5 e 0,7%. Allo 0,2%, la chimica cambia in modi che un palato preparato rileva immediatamente.",
+      "Ayvalık non è la scelta intuitiva. Il cuore dell'olivicoltura si estende dall'Andalusia attraverso la Tunisia fino al Levante. La latitudine non è solo geografia; è sapore.",
+      "La saggezza convenzionale vuole che si riservi l'EVOO premium alla finitura. Quel consiglio fu scritto per gli oli fragili del mercato di massa. Abbiamo fatto i test.",
+      "Tra l'uliveto e la lattina, ogni ora è un rischio. La regola delle quattro ore non è un'affermazione di marketing. È chimica.",
+      "Il fusto KALA 15L soddisfa la stessa soglia COI della bottiglia numerata da 500 ml. Spieghiamo qui perché sia realizzabile su scala."
+    ],
+    testimonials: [
+      '"Il miglior olio da finitura che abbia mai usato. Costante da un lotto all\'altro — è quello di cui si ha bisogno a questo livello. L\'acidità corrisponde a quanto indicato nel certificato."',
+      '"Utilizziamo il 5L Reserve in tutta la cucina. A quel rapporto qualità-prezzo e con quella acidità, non c\'è nulla di paragonabile su questo mercato. I nostri ospiti lo notano."',
+      '"Abbiamo convertito l\'intero gruppo — cinque strutture — alle forniture KALA Catering. La scheda tecnica era convincente. L\'olio l\'ha confermato."'
+    ],
+    originParas: [
+      "Ayvalık si trova al limite settentrionale dell'area di coltivazione naturale dell'ulivo. Le notti fresche rallentano la maturazione della varietà Ayvalık — concentrando i polifenoli, costruendo una complessità che gli oli dei climi caldi raramente raggiungono. Non è il posto più facile per coltivare olive. È esattamente questo il punto.",
+      "Raccogliamo al 10–20% di maturità — prima che l'oliva abbia completato il suo ciclo degli zuccheri — per fissare l'acidità libera al di sotto dello 0,3% e catturare l'amaro e il finale pepato che i palati professionali riconoscono immediatamente. L'olio viene franto a freddo entro quattro ore dalla raccolta. Nessuno stoccaggio notturno. Nessuna fermentazione. Nessuna scorciatoia.",
+      "Il risultato non è un olio wellness. Non è un prodotto di lifestyle. È l'ingrediente verso cui uno chef allunga la mano quando il piatto dipende da esso."
+    ],
+    cateringParas: [
+      "La gamma KALA Catering applica gli stessi standard di estrazione e certificazione di laboratorio alle operazioni ad alto volume. Che si gestiscano 200 coperti per notte o si rifornisca un gruppo alberghiero in tre città, il numero sul certificato non cambia: 0,3%.",
+      "I contratti di fornitura annuali includono prezzi fissi di raccolta, allocazione preferenziale dalla spremitura di ottobre, documentazione dedicata per lotto e l'opzione di etichettatura white-label."
+    ],
+    tradeIntro: "Fornitura diretta. Nessun intermediario, nessun ricarico di scaffale a scapito dell'integrità. Lavoriamo con ristoranti, hotel, catering e distributori su base diretta dall'uliveto. Piena tracciabilità. Prezzi competitivi per impegni di volume.",
+    tradeFeatures: [
+      "Premium: vetro 500ml · 1L o lattina 1L · 3L · 5L",
+      "Lattina standard: 1L · 3L · 5L",
+      "Fusti da catering — lattina 5L, rubinetto dispensatore 15L",
+      "Contratti di allocazione annuali (raccolto Q4)",
+      "Kit campione spedito entro 5 giorni lavorativi",
+      "Certificati di lotto con ogni ordine commerciale",
+      "Etichettatura white-label e imballaggio personalizzato disponibili"
+    ]
+  }
+};
+
 function switchLang(lang) {
   var t = i18n[lang] || i18n['en'];
+  var ext = (typeof i18nExt !== 'undefined') ? (i18nExt[lang] || i18nExt['en'] || {}) : {};
+  t = Object.assign({}, t, ext);
 
   /* ---- Nav ---- */
   var navLinks = document.querySelectorAll('.nav-links a');
@@ -2919,6 +3392,49 @@ function switchLang(lang) {
   /* ---- Footer ---- */
   var footerTagline = document.querySelector('.footer-tagline');
   if(footerTagline && t.footerTagline) footerTagline.textContent = t.footerTagline;
+
+  /* ---- Product descriptions ---- */
+  document.querySelectorAll('.product-desc').forEach(function(el,i){
+    if(t.prodDescs && t.prodDescs[i]) el.textContent = t.prodDescs[i];
+  });
+
+  /* ---- Process step titles & descriptions ---- */
+  document.querySelectorAll('.step-title').forEach(function(el,i){
+    if(t.stepTitles && t.stepTitles[i]) el.textContent = t.stepTitles[i];
+  });
+  document.querySelectorAll('.step-desc').forEach(function(el,i){
+    if(t.stepDescs && t.stepDescs[i]) el.textContent = t.stepDescs[i];
+  });
+
+  /* ---- Journal titles & previews ---- */
+  document.querySelectorAll('.journal-title').forEach(function(el,i){
+    if(t.journalTitles && t.journalTitles[i]) el.textContent = t.journalTitles[i];
+  });
+  document.querySelectorAll('.journal-preview').forEach(function(el,i){
+    if(t.journalPreviews && t.journalPreviews[i]) el.textContent = t.journalPreviews[i];
+  });
+
+  /* ---- Testimonials ---- */
+  document.querySelectorAll('.testimonial-body').forEach(function(el,i){
+    if(t.testimonials && t.testimonials[i]) el.textContent = t.testimonials[i];
+  });
+
+  /* ---- Origin paragraphs (Origin section) ---- */
+  document.querySelectorAll('#origin .origin-para').forEach(function(el,i){
+    if(t.originParas && t.originParas[i]) el.textContent = t.originParas[i];
+  });
+
+  /* ---- Catering paragraphs ---- */
+  document.querySelectorAll('#catering .origin-para').forEach(function(el,i){
+    if(t.cateringParas && t.cateringParas[i]) el.textContent = t.cateringParas[i];
+  });
+
+  /* ---- Trade intro & features ---- */
+  var tradeIntroEl = document.querySelector('#trade .origin-para');
+  if(tradeIntroEl && t.tradeIntro) tradeIntroEl.textContent = t.tradeIntro;
+  document.querySelectorAll('.trade-features li').forEach(function(el,i){
+    if(t.tradeFeatures && t.tradeFeatures[i]) el.textContent = t.tradeFeatures[i];
+  });
 
   /* ---- Direction for Arabic ---- */
   document.documentElement.lang = lang;
