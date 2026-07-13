@@ -3743,7 +3743,7 @@ function switchLang(lang) {
   /* ---- Form privacy note (mixed text + link) ---- */
   var formNote = document.querySelector('.form-note');
   if(formNote && t.formPrivacyText) {
-    formNote.innerHTML = t.formPrivacyText + ' <a href="#" onclick="openModal('privacy-modal'); return false;" style="color:var(--accent);">' + (t.formPrivacyLink || 'Privacy Policy') + '</a>.';
+    formNote.innerHTML = t.formPrivacyText + ' <a href="#" onclick="openModal(\'privacy-modal\'); return false;" style="color:var(--accent);">' + (t.formPrivacyLink || 'Privacy Policy') + '<\/a>.';
   }
 
   /* ---- Footer ---- */
@@ -3753,7 +3753,7 @@ function switchLang(lang) {
   /* ---- Cookie banner (mixed text + link) ---- */
   var cookieTextEl = document.querySelector('.cookie-text');
   if(cookieTextEl && t.cookieText) {
-    cookieTextEl.innerHTML = t.cookieText + ' <a href="#" onclick="openModal('privacy-modal'); return false;">' + (t.cookiePolicyLink || 'Privacy Policy') + '</a>.';
+    cookieTextEl.innerHTML = t.cookieText + ' <a href="#" onclick="openModal(\'privacy-modal\'); return false;">' + (t.cookiePolicyLink || 'Privacy Policy') + '<\/a>.';
   }
 
   /* ---- Product descriptions ---- */
