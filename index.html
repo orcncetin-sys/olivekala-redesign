@@ -1521,11 +1521,11 @@ section { position: relative; }
 
     <ul class="nav-links">
       <li><a href="#products">Products</a></li>
-      <li><a href="#origin">Origin</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#origin" data-i18n="footerOrigin">Origin</a></li>
+      <li><a href="#process" data-i18n="footerProcess">Process</a></li>
       <li><a href="#catering">Catering</a></li>
       <li><a href="#trade">Trade</a></li>
-      <li><a href="#journal">Journal</a></li>
+      <li><a href="#journal" data-i18n="footerJournal">Journal</a></li>
     </ul>
 
     <div class="nav-right">
@@ -2355,9 +2355,9 @@ section { position: relative; }
         <a class="footer-logo" href="#hero">OLIVE<span>KALA</span></a>
         <p class="footer-tagline">Extra virgin olive oil from Ayvalık, Aegean Turkey. Three tiers. One extraction standard. Zero compromise.</p>
         <div class="footer-certs">
-          <span class="footer-cert">IOC Certified</span>
-          <span class="footer-cert">ISO Food Safety</span>
-          <span class="footer-cert">Batch Traceable</span>
+          <span class="footer-cert" data-i18n="footerCertIOC">IOC Certified</span>
+          <span class="footer-cert" data-i18n="footerCertISO">ISO Food Safety</span>
+          <span class="footer-cert" data-i18n="footerCertBatch">Batch Traceable</span>
         </div>
       </div>
 
@@ -2393,9 +2393,9 @@ section { position: relative; }
       <div class="footer-col">
         <h4 data-i18n="footerColCompany">Company</h4>
         <ul>
-          <li><a href="#origin">Origin</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#journal">Journal</a></li>
+          <li><a href="#origin" data-i18n="footerOrigin">Origin</a></li>
+          <li><a href="#process" data-i18n="footerProcess">Process</a></li>
+          <li><a href="#journal" data-i18n="footerJournal">Journal</a></li>
           <li><a href="#trade" data-i18n="footerTradeEnquiry">Trade Enquiry</a></li>
           <li><a href="mailto:trade@olivekala.com">trade@olivekala.com</a></li>
         </ul>
@@ -2702,6 +2702,12 @@ const i18n = {
     btnVolumePricing:'Volume Pricing',
     btnBulkEnquiry:'Bulk Enquiry',
     btnSupplyContract:'Supply Contract',
+    footerOrigin:'Origin', footerProcess:'Process', footerJournal:'Journal',
+    footerCertIOC:'IOC Certified', footerCertISO:'ISO Food Safety', footerCertBatch:'Batch Traceable',
+    formSelectPlaceholder:'Select…',
+    sectorOptions:['Fine Dining Restaurant','Hotel & Resort','Event Catering','Institutional / Corporate','Distributor / Importer','Retail','Other'],
+    tierOptions:['Premium — Glass / Tin','Standard Tin — 1L · 3L · 5L','Catering — 5L · 15L','Multiple Tiers'],
+    volOptions:['Under 20L','20–50L','50–200L','200L+'],
   },
   tr: {
     navProducts:'Ürünler', navOrigin:'Menşe', navProcess:'Üretim', navCatering:'Toplu Tedarik', navTrade:'Ticaret', navJournal:'Dergi',
@@ -2781,6 +2787,12 @@ const i18n = {
     btnVolumePricing:'Hacim Fiyatı',
     btnBulkEnquiry:'Toplu Başvuru',
     btnSupplyContract:'Tedarik Sözleşmesi',
+    footerOrigin:'Köken', footerProcess:'Süreç', footerJournal:'Dergi',
+    footerCertIOC:'IOC Sertifikalı', footerCertISO:'ISO Gıda Güvenliği', footerCertBatch:'Parti Takibi',
+    formSelectPlaceholder:'Seçin…',
+    sectorOptions:['Fine Dining Restoran','Otel & Resort','Etkinlik Catering','Kurumsal / Şirket','Distribütör / İthalatçı','Perakende','Diğer'],
+    tierOptions:['Premium — Cam / Teneke','Standart Teneke — 1L · 3L · 5L','Catering — 5L · 15L','Birden Fazla Tier'],
+    volOptions:['20L Altında','20–50L','50–200L','200L+'],
   },
   de: {
     navProducts:'Produkte', navOrigin:'Herkunft', navProcess:'Prozess', navCatering:'Catering', navTrade:'Handel', navJournal:'Journal',
@@ -2860,6 +2872,12 @@ const i18n = {
     btnVolumePricing:'Mengenpreis',
     btnBulkEnquiry:'Großmengen-Anfrage',
     btnSupplyContract:'Liefervertrag',
+    footerOrigin:'Herkunft', footerProcess:'Verfahren', footerJournal:'Journal',
+    footerCertIOC:'IOC-Zertifiziert', footerCertISO:'ISO Lebensmittelsicherheit', footerCertBatch:'Chargenverfolgung',
+    formSelectPlaceholder:'Auswählen…',
+    sectorOptions:['Fine-Dining-Restaurant','Hotel & Resort','Event-Catering','Institutionell / Unternehmen','Distributor / Importeur','Einzelhandel','Sonstiges'],
+    tierOptions:['Premium — Glas / Dose','Standard Dose — 1L · 3L · 5L','Catering — 5L · 15L','Mehrere Kategorien'],
+    volOptions:['Unter 20L','20–50L','50–200L','200L+'],
   },
   ar: {
     navProducts:'المنتجات', navOrigin:'المنشأ', navProcess:'العملية', navCatering:'التموين', navTrade:'التجارة', navJournal:'المجلة',
@@ -2939,6 +2957,12 @@ const i18n = {
     btnVolumePricing:'أسعار الكميات',
     btnBulkEnquiry:'استفسار بالجملة',
     btnSupplyContract:'عقد التوريد',
+    footerOrigin:'المنشأ', footerProcess:'العملية', footerJournal:'المجلة',
+    footerCertIOC:'معتمد IOC', footerCertISO:'معيار ISO للغذاء', footerCertBatch:'تتبع الدفعة',
+    formSelectPlaceholder:'اختر...',
+    sectorOptions:['مطعم فاخر','فندق ومنتجع','تموين الفعاليات','مؤسسي / شركات','موزع / مستورد','تجزئة','أخرى'],
+    tierOptions:['بريميوم — زجاج / معلبة','ستاندارد — 1ل · 3ل · 5ل','تموين — 5ل · 15ل','مستويات متعددة'],
+    volOptions:['أقل من 20 لتر','20–50 لتر','50–200 لتر','200 لتر+'],
   },
   ru: {
     navProducts:'Продукты', navOrigin:'Происхождение', navProcess:'Процесс', navCatering:'Кейтеринг', navTrade:'Торговля', navJournal:'Журнал',
@@ -3018,6 +3042,12 @@ const i18n = {
     btnVolumePricing:'Оптовая цена',
     btnBulkEnquiry:'Оптовый запрос',
     btnSupplyContract:'Договор поставки',
+    footerOrigin:'Происхождение', footerProcess:'Процесс', footerJournal:'Журнал',
+    footerCertIOC:'Сертификат IOC', footerCertISO:'ISO Безопасность пищевых продуктов', footerCertBatch:'Прослеживаемость партии',
+    formSelectPlaceholder:'Выберите…',
+    sectorOptions:['Ресторан высокой кухни','Отель и курорт','Кейтеринг мероприятий','Институциональный / Корпоративный','Дистрибьютор / Импортёр','Розничная торговля','Другое'],
+    tierOptions:['Премиум — стекло / жесть','Стандартная жесть — 1л · 3л · 5л','Кейтеринг — 5л · 15л','Несколько уровней'],
+    volOptions:['До 20л','20–50л','50–200л','200л+'],
   },
   fr: {
     navProducts:'Produits', navOrigin:'Origine', navProcess:'Processus', navCatering:'Restauration', navTrade:'Commerce', navJournal:'Journal',
@@ -3097,6 +3127,12 @@ const i18n = {
     btnVolumePricing:'Tarif volume',
     btnBulkEnquiry:'Demande en gros',
     btnSupplyContract:"Contrat d'approvisionnement",
+    footerOrigin:'Origine', footerProcess:'Processus', footerJournal:'Journal',
+    footerCertIOC:'Certifié IOC', footerCertISO:'ISO Sécurité alimentaire', footerCertBatch:'Traçabilité par lot',
+    formSelectPlaceholder:'Sélectionner…',
+    sectorOptions:['Restaurant gastronomique','Hôtel & Resort','Traiteur événementiel','Institutionnel / Entreprise','Distributeur / Importateur','Commerce de détail','Autre'],
+    tierOptions:['Premium — Verre / Boîte','Standard boîte — 1L · 3L · 5L','Restauration — 5L · 15L','Plusieurs gammes'],
+    volOptions:['Moins de 20L','20–50L','50–200L','200L+'],
   },
   es: {
     navProducts:'Productos', navOrigin:'Origen', navProcess:'Proceso', navCatering:'Catering', navTrade:'Comercio', navJournal:'Artículos',
@@ -3176,6 +3212,12 @@ const i18n = {
     btnVolumePricing:'Precio por volumen',
     btnBulkEnquiry:'Consulta a granel',
     btnSupplyContract:'Contrato de suministro',
+    footerOrigin:'Origen', footerProcess:'Proceso', footerJournal:'Diario',
+    footerCertIOC:'Certificado IOC', footerCertISO:'ISO Seguridad alimentaria', footerCertBatch:'Trazabilidad por lote',
+    formSelectPlaceholder:'Seleccionar…',
+    sectorOptions:['Restaurante gastronómico','Hotel & Resort','Catering de eventos','Institucional / Corporativo','Distribuidor / Importador','Minorista','Otro'],
+    tierOptions:['Premium — Vidrio / Lata','Lata estándar — 1L · 3L · 5L','Catering — 5L · 15L','Varios niveles'],
+    volOptions:['Menos de 20L','20–50L','50–200L','200L+'],
   },
   it: {
     navProducts:'Prodotti', navOrigin:'Origine', navProcess:'Processo', navCatering:'Catering', navTrade:'Commercio', navJournal:'Articoli',
@@ -3255,6 +3297,12 @@ const i18n = {
     btnVolumePricing:'Prezzo a volume',
     btnBulkEnquiry:'Richiesta all ingrosso',
     btnSupplyContract:'Contratto di fornitura',
+    footerOrigin:'Origine', footerProcess:'Processo', footerJournal:'Diario',
+    footerCertIOC:'Certificato IOC', footerCertISO:'ISO Sicurezza alimentare', footerCertBatch:'Tracciabilità per lotto',
+    formSelectPlaceholder:'Seleziona…',
+    sectorOptions:['Ristorante gourmet','Hotel & Resort','Catering eventi','Istituzionale / Aziendale','Distributore / Importatore','Vendita al dettaglio','Altro'],
+    tierOptions:['Premium — Vetro / Latta','Latta standard — 1L · 3L · 5L','Catering — 5L · 15L','Più livelli'],
+    volOptions:['Sotto 20L','20–50L','50–200L','200L+'],
   },
 };
 
@@ -3887,6 +3935,20 @@ function switchLang(lang) {
     if(t.tradeFeatures && t.tradeFeatures[i]) el.textContent = t.tradeFeatures[i];
   });
 
+
+  /* ---- Form select options ---- */
+  function updateSelect(selectId, optKey, placeholder) {
+    var sel = document.getElementById(selectId);
+    if (!sel) return;
+    var opts = sel.querySelectorAll('option');
+    if (placeholder && opts[0]) opts[0].textContent = placeholder;
+    var vals = t[optKey];
+    if (!vals) return;
+    opts.forEach(function(opt, i) { if (i > 0 && vals[i-1]) opt.textContent = vals[i-1]; });
+  }
+  updateSelect('f-sector', 'sectorOptions', t.formSelectPlaceholder);
+  updateSelect('f-tier',   'tierOptions',   t.formSelectPlaceholder);
+  updateSelect('f-vol',    'volOptions',    t.formSelectPlaceholder);
   /* ---- Direction for Arabic ---- */
   document.documentElement.lang = lang;
   document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
