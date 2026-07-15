@@ -1726,7 +1726,7 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specGlassTin">Glass + Tin</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Allocation Enquiry</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnAllocationEnquiry">Allocation Enquiry</a>
           </div>
         </div>
 
@@ -1749,7 +1749,7 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specGiftReady">Gift Ready</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Request Info</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnRequestInfo">Request Info</a>
           </div>
         </div>
 
@@ -1771,7 +1771,7 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="spec40ml">40ml Shot</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Request Sample</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnRequestSample">Request Sample</a>
           </div>
         </div>
       </div>
@@ -1806,8 +1806,8 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specHoreca">HoReCa</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Order / Sample</a>
-            <a class="btn btn-ghost" href="https://orcncetin-sys.github.io/olivekala-website/kala_standard_spec.pdf" target="_blank">Spec Sheet ↗</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnOrderSample">Order / Sample</a>
+            <a class="btn btn-ghost" href="https://orcncetin-sys.github.io/olivekala-website/kala_standard_spec.pdf" target="_blank" data-i18n="btnSpecSheetLink">Spec Sheet ↗</a>
           </div>
         </div>
 
@@ -1828,7 +1828,7 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specVolumePricing">Volume Pricing</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Volume Pricing</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnVolumePricing">Volume Pricing</a>
           </div>
         </div>
       </div>
@@ -1863,8 +1863,8 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specIOC">IOC</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Bulk Enquiry</a>
-            <a class="btn btn-ghost" href="https://orcncetin-sys.github.io/olivekala-website/kala_catering_spec.pdf" target="_blank">Spec Sheet ↗</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnBulkEnquiry">Bulk Enquiry</a>
+            <a class="btn btn-ghost" href="https://orcncetin-sys.github.io/olivekala-website/kala_catering_spec.pdf" target="_blank" data-i18n="btnSpecSheetLink">Spec Sheet ↗</a>
           </div>
         </div>
 
@@ -1883,7 +1883,7 @@ section { position: relative; }
             <span class="spec-tag" data-i18n="specAnnualContract">Annual Contract</span>
           </div>
           <div class="product-card-foot">
-            <a class="btn btn-outline" href="#trade">Supply Contract</a>
+            <a class="btn btn-outline" href="#trade" data-i18n="btnSupplyContract">Supply Contract</a>
           </div>
         </div>
       </div>
@@ -2694,6 +2694,15 @@ const i18n = {
     tickerIOC:'IOC Certified', tickerISO:'ISO Food Safety', tickerBatch:'Batch Traceable', tickerOctober:'October Harvest Only', tickerCultivar:'Ayvalık Cultivar · Edremit', tickerPolyphenols:'Polyphenols >300 mg/kg', tickerAcidity:'Free Acidity 0.3%', tickerColdExtract:'Cold Extraction 24°C', tickerSince1961:'Since 1961 · Ayvalık',
     specAcidity03:'0.3% Acidity', specBatchNumbered:'Batch Numbered', specLimitedOct:'Limited Oct.', specGlassTin:'Glass + Tin', spec3Expressions:'3 Expressions', specLabCertified:'Lab Certified', specGiftReady:'Gift Ready', spec6Pack:'6-Pack', spec40ml:'40ml Shot', specN2Flushed:'N₂ Flushed', specBatchCert:'Batch Cert.', specHoreca:'HoReCa', spec10LFormat:'10L Format', specVolumePricing:'Volume Pricing', specCertified03:'0.3% Certified', specTapDispensing:'Tap Dispensing', specBulkPricing:'Bulk Pricing', specIOC:'IOC', spec200LMin:'200L+ Min.', specWhiteLabel:'White Label', specAnnualContract:'Annual Contract', specIOCCertified:'IOC Certified', specISOFood:'ISO Food Safety', specBatchTraceable:'Batch Traceable',
     stepOctober:'October Only', stepHours:'<4 hours', stepIOC:'IOC Certified', stepBatch:'Batch Numbered',
+,
+    btnAllocationEnquiry:'Allocation Enquiry',
+    btnRequestInfo:'Request Info',
+    btnRequestSample:'Request Sample',
+    btnOrderSample:'Order / Sample',
+    btnSpecSheetLink:'Spec Sheet ↗',
+    btnVolumePricing:'Volume Pricing',
+    btnBulkEnquiry:'Bulk Enquiry',
+    btnSupplyContract:'Supply Contract',
   },
   tr: {
     navProducts:'Ürünler', navOrigin:'Menşe', navProcess:'Üretim', navCatering:'Toplu Tedarik', navTrade:'Ticaret', navJournal:'Dergi',
@@ -2765,6 +2774,15 @@ const i18n = {
     tickerIOC:'IOC Sertifikalı', tickerISO:'ISO Gıda Güvenliği', tickerBatch:'Parti Takipli', tickerOctober:'Yalnızca Ekim Hasadı', tickerCultivar:'Ayvalık Zeytin Çeşidi · Edremit', tickerPolyphenols:'Polifenoller >300 mg/kg', tickerAcidity:'Serbest Asitlik %0,3', tickerColdExtract:'Soğuk Sıkım 24°C', tickerSince1961:'1961\'den Bu Yana · Ayvalık',
     specAcidity03:'%0,3 Asitlik', specBatchNumbered:'Parti Numaralı', specLimitedOct:'Sınırlı Ekim', specGlassTin:'Cam + Teneke', spec3Expressions:'3 Varyasyon', specLabCertified:'Lab Sertifikalı', specGiftReady:'Hediye Hazır', spec6Pack:'6\'lı Paket', spec40ml:'40ml Shot', specN2Flushed:'N₂ Yıkımlı', specBatchCert:'Parti Sert.', specHoreca:'HoReCa', spec10LFormat:'10L Format', specVolumePricing:'Toplu Fiyatlandırma', specCertified03:'%0,3 Sertifikalı', specTapDispensing:'Musluk Dağıtım', specBulkPricing:'Toplu Satış Fiyatı', specIOC:'IOC', spec200LMin:'200L+ Min.', specWhiteLabel:'Özel Marka', specAnnualContract:'Yıllık Sözleşme', specIOCCertified:'IOC Sertifikalı', specISOFood:'ISO Gıda Güvenliği', specBatchTraceable:'Parti Takipli',
     stepOctober:'Yalnızca Ekim', stepHours:'<4 saat', stepIOC:'IOC Sertifikalı', stepBatch:'Parti Numaralı',
+,
+    btnAllocationEnquiry:'Tahsisat Başvurusu',
+    btnRequestInfo:'Bilgi Al',
+    btnRequestSample:'Numune İste',
+    btnOrderSample:'Sipariş / Numune',
+    btnSpecSheetLink:'Teknik Belge ↗',
+    btnVolumePricing:'Hacim Fiyatı',
+    btnBulkEnquiry:'Toplu Başvuru',
+    btnSupplyContract:'Tedarik Sözleşmesi',
   },
   de: {
     navProducts:'Produkte', navOrigin:'Herkunft', navProcess:'Prozess', navCatering:'Catering', navTrade:'Handel', navJournal:'Journal',
@@ -2836,6 +2854,15 @@ const i18n = {
     tickerIOC:'IOC-Zertifiziert', tickerISO:'ISO Lebensmittelsicherheit', tickerBatch:'Chargenverfolgbar', tickerOctober:'Nur Oktober-Ernte', tickerCultivar:'Ayvalık-Sorte · Edremit', tickerPolyphenols:'Polyphenole >300 mg/kg', tickerAcidity:'Freie Säure 0,3%', tickerColdExtract:'Kaltextraktion 24°C', tickerSince1961:'Seit 1961 · Ayvalık',
     specAcidity03:'0,3% Säure', specBatchNumbered:'Chargennummeriert', specLimitedOct:'Begrenzt Okt.', specGlassTin:'Glas + Dose', spec3Expressions:'3 Varianten', specLabCertified:'Laborzertifiziert', specGiftReady:'Geschenkfertig', spec6Pack:'6er-Pack', spec40ml:'40ml Schuss', specN2Flushed:'N₂ gespült', specBatchCert:'Chargenzeugnis', specHoreca:'HoReCa', spec10LFormat:'10-Liter-Format', specVolumePricing:'Mengenpreise', specCertified03:'0,3% Zertifiziert', specTapDispensing:'Zapfanlage', specBulkPricing:'Großmengenpreise', specIOC:'IOC', spec200LMin:'200L+ Min.', specWhiteLabel:'White Label', specAnnualContract:'Jahresvertrag', specIOCCertified:'IOC-Zertifiziert', specISOFood:'ISO Lebensmittelsicherheit', specBatchTraceable:'Chargenverfolgbar',
     stepOctober:'Nur Oktober', stepHours:'<4 Stunden', stepIOC:'IOC-Zertifiziert', stepBatch:'Chargennummeriert',
+,
+    btnAllocationEnquiry:'Kontingent-Anfrage',
+    btnRequestInfo:'Infos anfordern',
+    btnRequestSample:'Muster anfordern',
+    btnOrderSample:'Bestellen / Muster',
+    btnSpecSheetLink:'Datenblatt ↗',
+    btnVolumePricing:'Mengenpreis',
+    btnBulkEnquiry:'Großmengen-Anfrage',
+    btnSupplyContract:'Liefervertrag',
   },
   ar: {
     navProducts:'المنتجات', navOrigin:'المنشأ', navProcess:'العملية', navCatering:'التموين', navTrade:'التجارة', navJournal:'المجلة',
@@ -2907,6 +2934,15 @@ const i18n = {
     tickerIOC:'معتمد IOC', tickerISO:'أيزو سلامة الغذاء', tickerBatch:'قابل للتتبع', tickerOctober:'حصاد أكتوبر فقط', tickerCultivar:'صنف أيفاليك · إدريميت', tickerPolyphenols:'البوليفينول >300 ملغ/كغ', tickerAcidity:'الحموضة الحرة 0.3%', tickerColdExtract:'استخلاص بارد 24°م', tickerSince1961:'منذ عام 1961 · أيفاليك',
     specAcidity03:'حموضة 0.3%', specBatchNumbered:'مرقم الدفعة', specLimitedOct:'محدود أكتوبر', specGlassTin:'زجاج + علبة', spec3Expressions:'3 أنواع', specLabCertified:'معتمد مخبرياً', specGiftReady:'جاهز للهدية', spec6Pack:'عبوة 6 قطع', spec40ml:'40 مل شوت', specN2Flushed:'مدفون بالنيتروجين', specBatchCert:'شهادة الدفعة', specHoreca:'هوريكا', spec10LFormat:'صيغة 10 لتر', specVolumePricing:'تسعير الكميات', specCertified03:'معتمد 0.3%', specTapDispensing:'توزيع بالصنبور', specBulkPricing:'تسعير الجملة', specIOC:'IOC', spec200LMin:'200 لتر+ حد أدنى', specWhiteLabel:'علامة بيضاء', specAnnualContract:'عقد سنوي', specIOCCertified:'معتمد IOC', specISOFood:'أيزو سلامة الغذاء', specBatchTraceable:'قابل للتتبع',
     stepOctober:'أكتوبر فقط', stepHours:'أقل من 4 ساعات', stepIOC:'معتمد IOC', stepBatch:'مرقم الدفعة',
+,
+    btnAllocationEnquiry:'طلب التخصيص',
+    btnRequestInfo:'طلب معلومات',
+    btnRequestSample:'طلب عينة',
+    btnOrderSample:'طلب / عينة',
+    btnSpecSheetLink:'ورقة المواصفات ↗',
+    btnVolumePricing:'أسعار الكميات',
+    btnBulkEnquiry:'استفسار بالجملة',
+    btnSupplyContract:'عقد التوريد',
   },
   ru: {
     navProducts:'Продукты', navOrigin:'Происхождение', navProcess:'Процесс', navCatering:'Кейтеринг', navTrade:'Торговля', navJournal:'Журнал',
@@ -2978,6 +3014,15 @@ const i18n = {
     tickerIOC:'Сертификат IOC', tickerISO:'ISO Безопасность продуктов', tickerBatch:'Серийная прослеживаемость', tickerOctober:'Только октябрьский урожай', tickerCultivar:'Сорт Айвалык · Эдремит', tickerPolyphenols:'Полифенолы >300 мг/кг', tickerAcidity:'Свободная кислотность 0,3%', tickerColdExtract:'Холодная экстракция 24°C', tickerSince1961:'С 1961 года · Айвалык',
     specAcidity03:'Кислотность 0,3%', specBatchNumbered:'С номером партии', specLimitedOct:'Ограничен (октябрь)', specGlassTin:'Стекло + Жесть', spec3Expressions:'3 варианта', specLabCertified:'Лабораторно сертифицирован', specGiftReady:'Готов к подарку', spec6Pack:'Упаковка 6 шт.', spec40ml:'40 мл порция', specN2Flushed:'Промыт N₂', specBatchCert:'Серт. партии', specHoreca:'HoReCa', spec10LFormat:'Формат 10 л', specVolumePricing:'Объёмное ценообразование', specCertified03:'Сертифицировано 0,3%', specTapDispensing:'Краниковая раздача', specBulkPricing:'Оптовая цена', specIOC:'IOC', spec200LMin:'200+ л мин.', specWhiteLabel:'Белая этикетка', specAnnualContract:'Годовой контракт', specIOCCertified:'Сертификат IOC', specISOFood:'ISO безопасность продуктов', specBatchTraceable:'Серийная прослеживаемость',
     stepOctober:'Только октябрь', stepHours:'<4 часов', stepIOC:'Сертификат IOC', stepBatch:'С номером партии',
+,
+    btnAllocationEnquiry:'Запрос аллокации',
+    btnRequestInfo:'Запросить информацию',
+    btnRequestSample:'Запросить образец',
+    btnOrderSample:'Заказ / Образец',
+    btnSpecSheetLink:'Спецификация ↗',
+    btnVolumePricing:'Оптовая цена',
+    btnBulkEnquiry:'Оптовый запрос',
+    btnSupplyContract:'Договор поставки',
   },
   fr: {
     navProducts:'Produits', navOrigin:'Origine', navProcess:'Processus', navCatering:'Restauration', navTrade:'Commerce', navJournal:'Journal',
@@ -3049,6 +3094,15 @@ const i18n = {
     tickerIOC:'Certifié IOC', tickerISO:'ISO Sécurité alimentaire', tickerBatch:'Traçable par lot', tickerOctober:'Récolte d\'octobre uniquement', tickerCultivar:'Cultivar Ayvalık · Edremit', tickerPolyphenols:'Polyphénols >300 mg/kg', tickerAcidity:'Acidité libre 0,3%', tickerColdExtract:'Extraction à froid 24°C', tickerSince1961:'Depuis 1961 · Ayvalık',
     specAcidity03:'Acidité 0,3%', specBatchNumbered:'Numéroté par lot', specLimitedOct:'Limité oct.', specGlassTin:'Verre + Boîte', spec3Expressions:'3 expressions', specLabCertified:'Certifié en laboratoire', specGiftReady:'Prêt à offrir', spec6Pack:'Pack de 6', spec40ml:'Shot 40ml', specN2Flushed:'Purge N₂', specBatchCert:'Cert. de lot', specHoreca:'HoReCa', spec10LFormat:'Format 10L', specVolumePricing:'Prix volume', specCertified03:'Certifié 0,3%', specTapDispensing:'Distributeur à robinet', specBulkPricing:'Prix vrac', specIOC:'IOC', spec200LMin:'200L+ min.', specWhiteLabel:'Marque blanche', specAnnualContract:'Contrat annuel', specIOCCertified:'Certifié IOC', specISOFood:'ISO Sécurité alimentaire', specBatchTraceable:'Traçable par lot',
     stepOctober:'Octobre uniquement', stepHours:'<4 heures', stepIOC:'Certifié IOC', stepBatch:'Numéroté par lot',
+,
+    btnAllocationEnquiry:"Demande d'allocation",
+    btnRequestInfo:'Demander info',
+    btnRequestSample:"Demander échantillon",
+    btnOrderSample:"Commander / Échantillon",
+    btnSpecSheetLink:'Fiche technique ↗',
+    btnVolumePricing:'Tarif volume',
+    btnBulkEnquiry:'Demande en gros',
+    btnSupplyContract:"Contrat d'approvisionnement",
   },
   es: {
     navProducts:'Productos', navOrigin:'Origen', navProcess:'Proceso', navCatering:'Catering', navTrade:'Comercio', navJournal:'Artículos',
@@ -3120,6 +3174,15 @@ const i18n = {
     tickerIOC:'Certificado IOC', tickerISO:'ISO Seguridad alimentaria', tickerBatch:'Trazable por lote', tickerOctober:'Solo cosecha de octubre', tickerCultivar:'Cultivar Ayvalık · Edremit', tickerPolyphenols:'Polifenoles >300 mg/kg', tickerAcidity:'Acidez libre 0,3%', tickerColdExtract:'Extracción en frío 24°C', tickerSince1961:'Desde 1961 · Ayvalık',
     specAcidity03:'Acidez 0,3%', specBatchNumbered:'Numerado por lote', specLimitedOct:'Limitado oct.', specGlassTin:'Vidrio + Lata', spec3Expressions:'3 variedades', specLabCertified:'Certificado en laboratorio', specGiftReady:'Listo para regalo', spec6Pack:'Pack de 6', spec40ml:'Shot 40ml', specN2Flushed:'Purga de N₂', specBatchCert:'Cert. de lote', specHoreca:'HoReCa', spec10LFormat:'Formato 10L', specVolumePricing:'Precios por volumen', specCertified03:'Certificado 0,3%', specTapDispensing:'Dispensación por grifo', specBulkPricing:'Precio a granel', specIOC:'IOC', spec200LMin:'200L+ mín.', specWhiteLabel:'Marca blanca', specAnnualContract:'Contrato anual', specIOCCertified:'Certificado IOC', specISOFood:'ISO Seguridad alimentaria', specBatchTraceable:'Trazable por lote',
     stepOctober:'Solo octubre', stepHours:'<4 horas', stepIOC:'Certificado IOC', stepBatch:'Numerado por lote',
+,
+    btnAllocationEnquiry:'Solicitar asignación',
+    btnRequestInfo:'Solicitar info',
+    btnRequestSample:'Solicitar muestra',
+    btnOrderSample:'Pedido / Muestra',
+    btnSpecSheetLink:'Ficha técnica ↗',
+    btnVolumePricing:'Precio por volumen',
+    btnBulkEnquiry:'Consulta a granel',
+    btnSupplyContract:'Contrato de suministro',
   },
   it: {
     navProducts:'Prodotti', navOrigin:'Origine', navProcess:'Processo', navCatering:'Catering', navTrade:'Commercio', navJournal:'Articoli',
@@ -3191,6 +3254,15 @@ const i18n = {
     tickerIOC:'Certificato IOC', tickerISO:'ISO Sicurezza alimentare', tickerBatch:'Tracciabile per lotto', tickerOctober:'Solo raccolta di ottobre', tickerCultivar:'Cultivar Ayvalık · Edremit', tickerPolyphenols:'Polifenoli >300 mg/kg', tickerAcidity:'Acidità libera 0,3%', tickerColdExtract:'Estrazione a freddo 24°C', tickerSince1961:'Dal 1961 · Ayvalık',
     specAcidity03:'Acidità 0,3%', specBatchNumbered:'Numerato per lotto', specLimitedOct:'Limitato ott.', specGlassTin:'Vetro + Latta', spec3Expressions:'3 espressioni', specLabCertified:'Certificato in laboratorio', specGiftReady:'Pronto per regalo', spec6Pack:'Confezione da 6', spec40ml:'Shot 40ml', specN2Flushed:'Lavato con N₂', specBatchCert:'Cert. lotto', specHoreca:'HoReCa', spec10LFormat:'Formato 10L', specVolumePricing:'Prezzo a volume', specCertified03:'Certificato 0,3%', specTapDispensing:'Erogazione a rubinetto', specBulkPricing:'Prezzo all\'ingrosso', specIOC:'IOC', spec200LMin:'200L+ min.', specWhiteLabel:'White Label', specAnnualContract:'Contratto annuale', specIOCCertified:'Certificato IOC', specISOFood:'ISO Sicurezza alimentare', specBatchTraceable:'Tracciabile per lotto',
     stepOctober:'Solo ottobre', stepHours:'<4 ore', stepIOC:'Certificato IOC', stepBatch:'Numerato per lotto',
+,
+    btnAllocationEnquiry:'Richiesta allocazione',
+    btnRequestInfo:'Richiesta info',
+    btnRequestSample:'Richiesta campione',
+    btnOrderSample:'Ordine / Campione',
+    btnSpecSheetLink:'Scheda tecnica ↗',
+    btnVolumePricing:'Prezzo a volume',
+    btnBulkEnquiry:'Richiesta all ingrosso',
+    btnSupplyContract:'Contratto di fornitura',
   },
 };
 
