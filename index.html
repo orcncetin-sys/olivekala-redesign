@@ -3730,8 +3730,8 @@ var i18nExt = {
 };
 
 function switchLang(lang) {
-  var t = i18n[lang] || i18n['en'];
-  var ext = (typeof i18nExt !== 'undefined') ? (i18nExt[lang] || i18nExt['en'] || {}) : {};
+  var t = Object.assign({}, i18n['en'], i18n[lang] || {});
+  var ext = (typeof i18nExt !== 'undefined') ? Object.assign({}, i18nExt['en'] || {}, i18nExt[lang] || {}) : {};
   t = Object.assign({}, t, ext);
 
   /* ---- Single-pass data-i18n loop (covers all newly tagged elements) ---- */
